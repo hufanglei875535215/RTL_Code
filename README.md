@@ -11,8 +11,11 @@
  
  逻辑仿真验证：
  1：cd /baggingDemo1126/sim
+ 
  2: make comp
+ 
  3: make elab
+ 
  4: make gui
  
 综合阶段：
