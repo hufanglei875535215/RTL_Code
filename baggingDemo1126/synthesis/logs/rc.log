@@ -1,0 +1,1777 @@
+Checking out license 'RTL_Compiler_Ultra'... (0 seconds elapsed)
+Finished loading tool scripts (6 seconds elapsed)
+
+                       Cadence Encounter(R) RTL Compiler
+          Version RC14.11 - v14.10-s012_1 (64-bit), built Jul 11 2014
+
+
+Copyright notice: Copyright 1997-2014 Cadence Design Systems, Inc. All rights 
+reserved worldwide. 
+
+WARNING: This version of RC is 1743 days old.
+         Visit downloads.cadence.com for the latest release of RC.
+
+
+================================================================================
+                  Welcome to Cadence Encounter(R) RTL Compiler
+
+Here is a quick introduction on how to access our product information.  
+If you do not want this message to appear in the future, create an 
+initialization file (an empty file will do) in your home directory 
+called '~/.cadence/.synth_init'.
+
+  To access the product documentation in HTML and PDF, type 'cdnshelp'
+    at the system prompt. 
+  For a list of available commands, type 'help'. 
+  To view a man page for a command, type 'man <commandName>'.
+  To view a man page for an error message, type 'man <messageID>'.
+  For a list of all possible object types, type 'get_attribute -help'.
+  For a list of all available attributes by object type, type
+    'get_attribute * <object_type> -help'.
+  For a list of all attributes for every object type, type
+    'get_attribute * * -help'
+  To list only writable attributes, substitute 'get_attribute' with
+    'set_attribute'.
+  To get a template script to run RTL Compiler, use the 'write_template'
+    command.
+  To get a template script to run Conformal based on the current RTL
+    Compiler session, use the 'write_do_lec' command.
+  
+  Obsolete attributes in the current tool version.
+  To learn more, type 'get_attribute -help <attribute> <object>'.
+
+            object  attribute
+            ------  ---------
+       cpf_command  synthesize_complex_expressions
+    cpf_command_id  current_set_instance_macro
+    cpf_command_id  current_set_instance_module
+    cpf_command_id  done_in_apply_cpf
+    cpf_command_id  done_in_write_cpf
+    cpf_command_id  macro_definition_command
+    cpf_command_id  rc_command
+            design  dp_perform_rewriting_operations
+            design  lp_clock_gating_hierarchical
+            design  lp_map_to_srpg_cells
+            design  lp_optimize_dynamic_power_first
+            design  lp_srpg_pg_driver
+          instance  black_box
+          instance  dft_inherited_dont_scan
+          instance  gint_has_connected_pg_pin
+          instance  lp_map_to_srpg_cells
+          instance  lp_map_to_srpg_type
+          instance  lp_srpg_pg_driver
+           libcell  black_box
+           libcell  location
+               net  logic0_driven
+               net  logic1_driven
+              root  auto_ungroup_min_effort
+              root  degenerate_complex_seqs
+              root  disable_power_mode
+              root  dp_perform_csa_operations
+              root  dp_perform_rewriting_operations
+              root  dp_perform_sharing_operations
+              root  dp_perform_speculation_operations
+              root  driver_for_unloaded_ports
+              root  enable_parallel_iopt
+              root  enc_in_place_opt
+              root  enc_opt_drv
+              root  hdl_flatten_array
+              root  hdl_old_reg_naming
+              root  hdl_reg_naming_style_scalar
+              root  hdl_reg_naming_style_vector
+              root  hdl_trim_target_index
+              root  ignore_unknown_embedded_commands
+              root  lbr_async_clr_pre_seqs_interchangable
+              root  lp_clock_gating_hierarchical
+              root  lp_insert_clock_gating_incremental
+              root  lp_iopt_mvt_multipass_flow
+              root  lp_multi_vt_optimization_effort
+              root  ovf_mode
+              root  ovf_verification_directory
+              root  ple_parameter_source_priority
+              root  power_optimization_effort
+              root  pqos_virtual_buffer
+              root  retime_preserve_state_points
+              root  wlec_env_var
+              root  wlec_flat_r2n
+              root  wlec_no_exit
+              root  wlec_old_lp_ec_flow
+              root  wlec_save_ssion
+              root  wlec_sim_lib
+              root  wlec_sim_plus_lib
+              root  wlec_skip_iso_check_hier_compare
+              root  wlec_skip_lvl_check_hier_compare
+              root  wlec_verbose
+         subdesign  allow_csa_subdesign
+         subdesign  allow_sharing_subdesign
+         subdesign  allow_speculation_subdesign
+         subdesign  auto_ungroup_ok
+         subdesign  dp_perform_rewriting_operations
+         subdesign  lp_clock_gating_hierarchical
+
+Send us feedback at rc_feedback@cadence.com.
+================================================================================
+
+Sourcing './script/syn_RISC.scr' (Fri Apr 19 10:47:13 +0800 2019)...
+  Setting attribute of root '/': 'hdl_search_path' = ../src
+  Setting attribute of root '/': 'script_search_path' = ./script
+  Setting attribute of root '/': 'information_level' = 9
+Sourcing './script/tech_settings.tcl' (Fri Apr 19 10:47:13 +0800 2019)...
+  Setting attribute of root '/': 'lib_search_path' =   /workspace/technology/tsmc/65nm_GP/Std_cell_lib/tcbn65gplushpbwp/TSMCHOME/digital/Front_End/timing_power_noise/ECSM/tcbn65gplushpbwp_140a/  
+            Reading file '/workspace/technology/tsmc/65nm_GP/Std_cell_lib/tcbn65gplushpbwp/TSMCHOME/digital/Front_End/timing_power_noise/ECSM/tcbn65gplushpbwp_140a//tcbn65gplushpbwpwc_ecsm.lib'
+    Loading library tcbn65gplushpbwpwc_ecsm.lib
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:44:20: Construct 'define_cell_area' is not supported.
+        : Check to see if this construct is really needed for synthesis.  Many liberty constructs are not actually required.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:46:20: Construct 'library_features' is not supported.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:49:17: Construct 'input_voltage' is not supported.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:85:18: Construct 'output_voltage' is not supported.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:416:12: Construct 'define_group' is not supported.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : tcbn65gplushpbwpwc_ecsm.lib:418:6: Construct 'define' is not supported.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD1HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 345901, column 29.
+        : Currently, state tables are only supported for scan cells for the clocked LSSD scan style and for clock-gating cells whose Liberty attribute 'clock_gating_integrated_cell' is set to 'generic'.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD2HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 346857, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD3HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 347813, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD4HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 348769, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD6HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 349725, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD8HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 350681, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD12HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 351637, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD16HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 352593, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD20HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 353551, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLHQD24HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 354509, column 29.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD1HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 355465, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD2HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 356421, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD3HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 357377, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD4HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 358333, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD6HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 359289, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD8HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 360245, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD12HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 361201, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD16HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 362157, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD20HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 363115, column 28.
+Info    : Found 'statetable' group in cell. [LBR-83]
+        : The 'statetable' group in cell 'CKLNQD24HPBWP', in file 'tcbn65gplushpbwpwc_ecsm.lib', at line 364073, column 28.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'tcbn65gplushpbwpwc_ecsm.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+
+  Message Summary for Library tcbn65gplushpbwpwc_ecsm.lib:
+  ********************************************************
+  An unsupported construct was detected in this library. [LBR-40]: 6
+  Found 'statetable' group in cell. [LBR-83]: 20
+  Created nominal operating condition. [LBR-412]: 1
+  ********************************************************
+ 
+        Cell 'ANTENNAHPBWP' has no outputs.
+        Cell 'ANTENNAHPBWP' has no outputs.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'BHDHPBWP/Z' has no function.
+        : If the remainder of this library cell's semantic checks are successful, it will be considered as a timing-model (because one of its outputs does not have a valid function.
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD20HPBWP'
+        : To use the cell in clock gating, Set cell attribute 'dont_use' false in the library.
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD24HPBWP'
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD20HPBWP'
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD24HPBWP'
+        Cell 'DCAP16HPBWP' has no outputs.
+        Cell 'DCAP16HPBWP' has no outputs.
+        Cell 'DCAP32HPBWP' has no outputs.
+        Cell 'DCAP32HPBWP' has no outputs.
+        Cell 'DCAP4HPBWP' has no outputs.
+        Cell 'DCAP4HPBWP' has no outputs.
+        Cell 'DCAP64HPBWP' has no outputs.
+        Cell 'DCAP64HPBWP' has no outputs.
+        Cell 'DCAP8HPBWP' has no outputs.
+        Cell 'DCAP8HPBWP' has no outputs.
+        Cell 'DCAPHPBWP' has no outputs.
+        Cell 'DCAPHPBWP' has no outputs.
+        Cell 'GDCAP10HPBWP' has no outputs.
+        Cell 'GDCAP10HPBWP' has no outputs.
+        Cell 'GDCAP2HPBWP' has no outputs.
+        Cell 'GDCAP2HPBWP' has no outputs.
+        Cell 'GDCAP3HPBWP' has no outputs.
+        Cell 'GDCAP3HPBWP' has no outputs.
+        Cell 'GDCAP4HPBWP' has no outputs.
+        Cell 'GDCAP4HPBWP' has no outputs.
+        Cell 'GDCAPHPBWP' has no outputs.
+        Cell 'GDCAPHPBWP' has no outputs.
+        Cell 'OD18DCAP16HPBWP' has no outputs.
+        Cell 'OD18DCAP16HPBWP' has no outputs.
+        Cell 'OD18DCAP32HPBWP' has no outputs.
+        Cell 'OD18DCAP32HPBWP' has no outputs.
+        Cell 'OD18DCAP64HPBWP' has no outputs.
+        Cell 'OD18DCAP64HPBWP' has no outputs.
+        Cell 'GFILL10HPBWP' has no outputs.
+        Cell 'GFILL10HPBWP' has no outputs.
+        Cell 'GFILL2HPBWP' has no outputs.
+        Cell 'GFILL2HPBWP' has no outputs.
+        Cell 'GFILL3HPBWP' has no outputs.
+        Cell 'GFILL3HPBWP' has no outputs.
+        Cell 'GFILL4HPBWP' has no outputs.
+        Cell 'GFILL4HPBWP' has no outputs.
+        Cell 'GFILLHPBWP' has no outputs.
+        Cell 'GFILLHPBWP' has no outputs.
+  Setting attribute of root '/': 'library' =   tcbn65gplushpbwpwc_ecsm.lib  
+/libraries/tcbn65gplushpbwpwc_ecsm/operating_conditions/WCCOM (operating_condition)
+    Attributes:
+      liberty_attributes = process 1 temperature 125 tree_type balanced_tree voltage 0.9
+      process = 1.0
+      temperature = 125.0 degrees
+      tree_type = balanced_tree
+      voltage = 0.9 volts
+  Setting attribute of root '/': 'lp_insert_clock_gating' = true
+  Setting attribute of root '/': 'lp_clock_gating_exceptions_aware' = true
+  Setting attribute of root '/': 'lp_clock_gating_prefix' = PREFIX_lp_clock_gating
+  Setting attribute of root '/': 'lp_insert_operand_isolation' = true
+  Setting attribute of root '/': 'lp_operand_isolation_prefix' = PREFIX_lp_operand_isolation
+Sourcing './script/read_hdl.scr' (Fri Apr 19 10:47:18 +0800 2019)...
+            Reading Verilog file '../src/TopBagging.v'
+            Reading Verilog file '../src/Weight_memory.v'
+            Reading Verilog file '../src/BaggingDemo.v'
+Info   : Enabled hdl_track_file_row_column attribute.
+       : Setting this attribute to 'true' can have an impact on the run time. Use this attribute only when filename, line number, and column information are needed in reports.
+  Setting attribute of root '/': 'hdl_track_filename_row_col' = true
+  Setting attribute of root '/': 'tns_opto' = true
+  Setting attribute of root '/': 'hdl_vhdl_assign_width_mismatch' = true
+  Setting attribute of root '/': 'hdl_vhdl_lrm_compliance' = true
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'X2' in libcell 'BENCD1HPBWP'.
+        : Setting the 'timing_sense' to non_unate.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'X2' in libcell 'BENCD1HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'X2' in libcell 'BENCD2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'X2' in libcell 'BENCD2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'X2' in libcell 'BENCD4HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'X2' in libcell 'BENCD4HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'PP' in libcell 'BMLD1HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'PP' in libcell 'BMLD1HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'X2' and 'PP' in libcell 'BMLD1HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'PP' in libcell 'BMLD2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'PP' in libcell 'BMLD2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'X2' and 'PP' in libcell 'BMLD2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M0' and 'PP' in libcell 'BMLD4HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'M1' and 'PP' in libcell 'BMLD4HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'X2' and 'PP' in libcell 'BMLD4HPBWP'.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD1HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+        : Refer to 'Supported Liberty timing_type Values' in 'Setting Constraints and Performing Timing Analysis Using Encounter RTL Compiler' for more information.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD2HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD3HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD4HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD6HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD8HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD12HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD16HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD20HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CPN' and 'CPN' on libcell 'CKLHQD24HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD1HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD2HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD3HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD4HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD6HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD8HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD12HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD16HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD20HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_pulse_width' between libpins 'CP' and 'CP' on libcell 'CKLNQD24HPBWP' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D0HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D1HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D2HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D4HPBWP'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A1' and 'Z' in libcell 'CKXOR2D0HPBWP'.
+Info    : Found unusable library cells. [LBR-415]
+        : Library: 'tcbn65gplushpbwpwc_ecsm.lib', Total cells: 816, Unusable cells: 88.
+	List of unusable cells: 'ANTENNAHPBWP BHDHPBWP BUFFD20HPBWP BUFFD24HPBWP BUFTD20HPBWP BUFTD24HPBWP CKBD20HPBWP CKBD24HPBWP CKLHQD20HPBWP CKLHQD24HPBWP CKLNQD20HPBWP CKLNQD24HPBWP CKND20HPBWP CKND24HPBWP DCAP16HPBWP DCAP32HPBWP DCAP4HPBWP DCAP64HPBWP DCAP8HPBWP DCAPHPBWP DEL005HPBWP DEL015HPBWP DEL01HPBWP DEL02HPBWP DEL0HPBWP DEL1HPBWP DEL2HPBWP DEL3HPBWP DEL4HPBWP GAN2D1HPBWP GAN2D2HPBWP GAOI21D1HPBWP GAOI21D2HPBWP GAOI22D1HPBWP GBUFFD1HPBWP GBUFFD2HPBWP GBUFFD3HPBWP GBUFFD4HPBWP GBUFFD8HPBWP GDCAP10HPBWP GDCAP2HPBWP GDCAP3HPBWP GDCAP4HPBWP GDCAPHPBWP GDFCNQD1HPBWP GDFQD1HPBWP GINVD1HPBWP GINVD2HPBWP GINVD3HPBWP GINVD4HPBWP GINVD8HPBWP GMUX2D1HPBWP GMUX2D2HPBWP GMUX2ND1HPBWP GMUX2ND2HPBWP GND2D1HPBWP GND2D2HPBWP GND2D3HPBWP GND2D4HPBWP GND3D1HPBWP GND3D2HPBWP GNR2D1HPBWP GNR2D2HPBWP GNR3D1HPBWP GNR3D2HPBWP GOAI21D1HPBWP GOAI21D2HPBWP GOR2D1HPBWP GOR2D2HPBWP GSDFCNQD1HPBWP GTIEHHPBWP GTIELHPBWP GXNR2D1HPBWP GXNR2D2HPBWP GXOR2D1HPBWP GXOR2D2HPBWP INVD20HPBWP INVD24HPBWP OD18DCAP16HPBWP OD18DCAP32HPBWP OD18DCAP64HPBWP TIEHHPBWP TIELHPBWP GFILL10HPBWP GFILL2HPBWP GFILL3HPBWP GFILL4HPBWP GFILLHPBWP .'
+        : For more information, refer to 'Cells Identified as Unusable' in the RC User Guide. The number of unusable cells that is listed depends on the setting of the 'information_level' root attribute. If set to a value less than 6, the list is limited to 10 unusable cells. If set to a value equal to or higher than 6, all unusable cells are listed.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'TopBagging' from file '../src/TopBagging.v'.
+Info    : Elaborating Subdesign. [ELAB-2]
+        : Elaborating block 'Weight_memory' from file '../src/Weight_memory.v'.
+Info    : Processing multi-dimensional arrays. [CDFG-250]
+        : Variable 'memory' in module 'Weight_memory' in file '../src/Weight_memory.v' on line 11.
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=1 B=1 Z=1) at line 28 in the file '../src/Weight_memory.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=1 B=1 Z=1) at line 28 in the file '../src/Weight_memory.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=1 B=1 Z=1) at line 14 in the file '../src/Weight_memory.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=1 B=1 Z=1) at line 14 in the file '../src/Weight_memory.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=5 B=5 Z=1) at line 20 in the file '../src/Weight_memory.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=5 B=5 Z=1) at line 20 in the file '../src/Weight_memory.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'address' of 5 bits wide in module 'Weight_memory' is not considered for Operand Isolation
+        : Signals of bitwidth lesser than 8 are not considered for Operand Isolation.
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'write' of 1 bits wide in module 'Weight_memory' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'read' of 1 bits wide in module 'Weight_memory' is not considered for Operand Isolation
+Info    : Nothing to do in Operand Isolation. [POPT-204]
+        : No candidates found for Operand Isolation in module 'Weight_memory'
+        :  
+Info    : Nothing to do in Operand Isolation. [POPT-204]
+        : No candidates found for Operand Isolation in module 'Weight_memory'.
+Info    : Elaborating Subdesign. [ELAB-2]
+        : Elaborating block 'BaggingDemo' from file '../src/BaggingDemo.v'.
+Warning : Using default parameter value for module elaboration. [CDFG-818]
+        : Elaborating block 'BaggingDemo' with default parameters value.
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/leq_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'LEQ_UNS_OP' (pin widths: A=6 B=5 Z=1) at line 37 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'LEQ_UNS_OP' (pin widths: A=6 B=5 Z=1) at line 37 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/leq_unsigned/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/leq_unsigned/implementations/medium' (priority 1), '/hdl_libraries/GB/components/leq_unsigned/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_UNS_OP' (pin widths: A=6 B=1 Z=6) at line 40 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_UNS_OP' (pin widths: A=6 B=1 Z=6) at line 40 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/add_unsigned/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_unsigned/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_unsigned/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_signed/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_TC_OP' (pin widths: A=12 B=11 Z=12) at line 39 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_TC_OP' (pin widths: A=12 B=11 Z=12) at line 39 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/add_signed/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_signed/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_signed/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/mult_signed/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'MULT_TC_OP' (pin widths: A=2 B=9 Z=11) at line 39 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'MULT_TC_OP' (pin widths: A=2 B=9 Z=11) at line 39 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/mult_signed/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/mult_signed/implementations/medium' (priority 1), '/hdl_libraries/GB/components/mult_signed/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_signed/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_TC_OP' (pin widths: A=12 B=9 Z=12) at line 47 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_TC_OP' (pin widths: A=12 B=9 Z=12) at line 47 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/add_signed/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_signed/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_signed/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/lt_signed/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'LT_TC_OP' (pin widths: A=12 B=1 Z=1) at line 51 in the file '../src/BaggingDemo.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'LT_TC_OP' (pin widths: A=12 B=1 Z=1) at line 51 in the file '../src/BaggingDemo.v' will be considered in the following order: {'/hdl_libraries/GB/components/lt_signed/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/lt_signed/implementations/medium' (priority 1), '/hdl_libraries/GB/components/lt_signed/implementations/slow' (priority 1)}
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'data' of 2 bits wide in module 'BaggingDemo' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'data' of 2 bits wide in module 'BaggingDemo' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'i' of 6 bits wide in module 'BaggingDemo' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'i' of 6 bits wide in module 'BaggingDemo' is not considered for Operand Isolation
+Info    : Candidates found for Operand Isolation. [POPT-205]
+        : Found 3 candidates for Operand Isolation in module 'BaggingDemo'
+        :  
+  Performing operand isolation exploration...
+    Inserted 3 operand isolation instances in module 'BaggingDemo'
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=2 Z=1) at line 89 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v'.
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'EQ_UNS_OP' (pin widths: A=2 B=1 Z=1) at line 93 in the file '../src/TopBagging.v' will be considered in the following order: {'/hdl_libraries/GB/components/equal_unsigned/implementations/very_fast' (priority 1)}
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result3' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result3' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result2' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result2' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result1' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Signal width is too small. [POPT-201]
+        : Signal 'result1' of 2 bits wide in module 'TopBagging' is not considered for Operand Isolation
+Info    : Nothing to do in Operand Isolation. [POPT-204]
+        : No candidates found for Operand Isolation in module 'TopBagging'
+Info    : Nothing to do in Operand Isolation. [POPT-204]
+        : No candidates found for Operand Isolation in module 'TopBagging'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'TopBagging'.
+        Applying wireload models.
+        Computing net loads.
+  Checking the design.
+
+ 	 Check Design Report
+	 -------------------- 
+
+  Unresolved References & Empty Modules
+  ------------------------------------- 
+No unresolved references in design 'TopBagging'
+
+No empty modules in design 'TopBagging'
+
+  Done Checking the design.
+  Setting attribute of port 'clk': 'clock_setup_uncertainty' = 150.0 150.0
+  Setting attribute of port 'clk': 'clock_hold_uncertainty' = 150.0 150.0
+  Setting attribute of design 'TopBagging': 'max_fanout' = 16.000
+  Setting attribute of port 'clk': 'max_fanout' = no_value
+  Setting attribute of port 'rst': 'max_fanout' = no_value
+  Setting attribute of design 'TopBagging': 'max_transition' = 200.0
+  Setting attribute of root '/': 'interconnect_mode' = ple
+  Setting attribute of port 'clk': 'ideal_driver' = true
+  Setting attribute of port 'rst': 'ideal_driver' = true
+  Setting attribute of design 'TopBagging': 'lp_clock_gating_max_flops' = 4
+Warning : Total power has skewed contributions from leakage and dynamic power. [POPT-502]
+        : With 'lp_power_optimization_weight' set to 0.1, the total power of 'CKND2D0HPBWP' is being computed as:
+	  Total Power = (Leakage Power * 0.1) + (Dynamic Power * (1 - 0.1))
+	  Leakage Power:     3.3390000000 nW
+	  Dynamic Power:   850.0000000000 nW
+	  Total Power:     765.3339000000 nW
+	  Leakage Power is contributing 0.0436% to the Total Power.
+        : Dynamic power is typically calculated/specified for some 'active period'. For combination of leakage and dynamic power lp_power_optimization_weight must specify the percentage of overall time for which the design is not in the 'active period' but in 'idle mode', i.e. no dynamic power but only leakage power is consumed. For a reasonable optimization across dynamic and leakage power, leakage contribution is expected to be above 5% and below 95%. A contribution of less than 5% will result in limited leakage optimization and contribution of more than 95% will result in limited dynamic optimization. Adjust 'lp_power_optimization_weight' so that leakage contribution comes to an intermediate value if you intend both optimizations to occur.
+  Setting attribute of design 'TopBagging': 'lp_power_optimization_weight' = 0.1
+  Setting attribute of design 'TopBagging': 'max_dynamic_power' = 0.0
+  Setting attribute of root '/': 'remove_assigns' = true
+Info    : Found unusable library cells. [LBR-415]
+        : Library: 'tcbn65gplushpbwpwc_ecsm.lib', Total cells: 816, Unusable cells: 88.
+	List of unusable cells: 'ANTENNAHPBWP BHDHPBWP BUFFD20HPBWP BUFFD24HPBWP BUFTD20HPBWP BUFTD24HPBWP CKBD20HPBWP CKBD24HPBWP CKLHQD20HPBWP CKLHQD24HPBWP CKLNQD20HPBWP CKLNQD24HPBWP CKND20HPBWP CKND24HPBWP DCAP16HPBWP DCAP32HPBWP DCAP4HPBWP DCAP64HPBWP DCAP8HPBWP DCAPHPBWP DEL005HPBWP DEL015HPBWP DEL01HPBWP DEL02HPBWP DEL0HPBWP DEL1HPBWP DEL2HPBWP DEL3HPBWP DEL4HPBWP GAN2D1HPBWP GAN2D2HPBWP GAOI21D1HPBWP GAOI21D2HPBWP GAOI22D1HPBWP GBUFFD1HPBWP GBUFFD2HPBWP GBUFFD3HPBWP GBUFFD4HPBWP GBUFFD8HPBWP GDCAP10HPBWP GDCAP2HPBWP GDCAP3HPBWP GDCAP4HPBWP GDCAPHPBWP GDFCNQD1HPBWP GDFQD1HPBWP GINVD1HPBWP GINVD2HPBWP GINVD3HPBWP GINVD4HPBWP GINVD8HPBWP GMUX2D1HPBWP GMUX2D2HPBWP GMUX2ND1HPBWP GMUX2ND2HPBWP GND2D1HPBWP GND2D2HPBWP GND2D3HPBWP GND2D4HPBWP GND3D1HPBWP GND3D2HPBWP GNR2D1HPBWP GNR2D2HPBWP GNR3D1HPBWP GNR3D2HPBWP GOAI21D1HPBWP GOAI21D2HPBWP GOR2D1HPBWP GOR2D2HPBWP GSDFCNQD1HPBWP GTIEHHPBWP GTIELHPBWP GXNR2D1HPBWP GXNR2D2HPBWP GXOR2D1HPBWP GXOR2D2HPBWP INVD20HPBWP INVD24HPBWP OD18DCAP16HPBWP OD18DCAP32HPBWP OD18DCAP64HPBWP TIEHHPBWP TIELHPBWP GFILL10HPBWP GFILL2HPBWP GFILL3HPBWP GFILL4HPBWP GFILLHPBWP .'
+Current PLE settings:
+
+Aspect ratio        : 1.00
+Shrink factor       : 1.00
+Scale of res/length : 1.00
+Scale of cap/length : 1.00
+Net derating factor : 1.00
+Thermal factor      : 1.00
+Via Resistance      : 0.00 ohm (from default)
+Site size           : 4.00 um (default)
+
+                                   Capacitance  
+  Layer                             / Length         Data source:
+Name        Direction Utilization  (pF/micron)       default value
+------------------------------------------------
+<default>       U         n/a         0.000250  
+
+** = DEFAULT cap per unit length is used for timing analysis
+
+                                    Resistance   
+  Layer                              / Length         Data source:
+Name        Direction Utilization  (ohm/micron)       default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT res per unit length is used for timing analysis
+
+                                        Area     
+  Layer                               / Length        Data source:
+Name        Direction Utilization     (micron)        default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT area per unit length is used for timing analysis
+
+Info    : Deleting instances not driving any primary outputs. [GLO-34]
+        : Deleting 22 hierarchical instances. 
+Following instances are deleted as they do not drive any primary output:
+'bagging1/mux_i_18_4', 'bagging1/mux_ready_18_4', 
+'bagging1/mux_result_18_4', 'bagging1/mux_state_18_4', 
+'bagging1/mux_temp_18_4', 'bagging2/mux_i_18_4', 'bagging2/mux_ready_18_4', 
+'bagging2/mux_result_18_4', 'bagging2/mux_state_18_4', 
+'bagging2/mux_temp_18_4', 'bagging3/mux_i_18_4', 'bagging3/mux_ready_18_4', 
+'bagging3/mux_result_18_4', 'bagging3/mux_state_18_4', 
+'bagging3/mux_temp_18_4', 'm1/mux_finish_20_11', 'm2/mux_finish_20_11', 
+'m3/mux_finish_20_11', 'mux_total_predict_83_6', 'mux_total_predict_89_69', 
+'mux_total_ready_68_6', 'mux_total_ready_74_22'.
+        : Optimizations such as constant propagation or redundancy removal could change the connections so an instance does not drive any primary outputs anymore. To see the list of deleted instances, set the 'information_level' attribute to 2 or above.
+        Trying carrysave optimization (configuration 1 of 1) on module 'BaggingDemo'...
+                  Allow CSA over Muxes:      Yes
+                  Allow CSA over Inverter:   Yes
+                  Allow Complex CSA:         No
+                  Allow CSA over Truncation: No
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6) will be considered in the following order: {'/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/medium' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12) will be considered in the following order: {'/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/slow' (priority 1)}
+Info    : Done carrysave optimization. [RTLOPT-20]
+        : There are 2 CSA groups in module 'BaggingDemo'... Accepted.
+        Trying carrysave optimization (configuration 1 of 1) on module 'BaggingDemo_1'...
+                  Allow CSA over Muxes:      Yes
+                  Allow CSA over Inverter:   Yes
+                  Allow Complex CSA:         No
+                  Allow CSA over Truncation: No
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6) will be considered in the following order: {'/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/medium' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12) will be considered in the following order: {'/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/slow' (priority 1)}
+Info    : Done carrysave optimization. [RTLOPT-20]
+        : There are 2 CSA groups in module 'BaggingDemo_1'... Accepted.
+        Trying carrysave optimization (configuration 1 of 1) on module 'BaggingDemo_2'...
+                  Allow CSA over Muxes:      Yes
+                  Allow CSA over Inverter:   Yes
+                  Allow Complex CSA:         No
+                  Allow CSA over Truncation: No
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'INCREMENT_UNS_CI_OP' (pin widths: A=6 CI=1 Z=6) will be considered in the following order: {'/hdl_libraries/GB/components/increment_unsigned/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/medium' (priority 1), '/hdl_libraries/GB/components/increment_unsigned/implementations/slow' (priority 1)}
+Info    : An implementation was inferred. [CWD-19]
+        : The implementation '/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' was inferred through the binding 'b1' for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12).
+Info    : Sorted the set of valid implementations for synthetic operator. [CWD-36]
+        : The implementations for the call to synthetic operator 'ADD_TC_CI_OP' (pin widths: A=12 B=12 CI=1 Z=12) will be considered in the following order: {'/hdl_libraries/GB/components/add_signed_carry/implementations/very_fast' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/medium' (priority 1), '/hdl_libraries/GB/components/add_signed_carry/implementations/slow' (priority 1)}
+Info    : Done carrysave optimization. [RTLOPT-20]
+        : There are 2 CSA groups in module 'BaggingDemo_2'... Accepted.
+  Performing operand isolation commitment...
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST violates timing
+        :  
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST59 violates timing
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST violates timing
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST59 violates timing
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST violates timing
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST59 violates timing
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST61 does not save power
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST61 does not save power
+Info    : Decommitting (deleting) operand isolation instance. [POPT-208]
+        : PREFIX_lp_operand_isolation_RC_OI_HIER_INST61 does not save power
+Operand Isolation Status
+========================
+  Total Operand Isolation instances inserted	9
+  Total committed                           	0
+    Fully committed                         	0
+    Partially committed                     	0
+  Total de-committed                        	9
+    Due to timing violations                	6
+    Due to power violations                 	3
+       
+      Removing temporary intermediate hierarchies under TopBagging
+              Optimizing muxes in design 'BaggingDemo'.
+              Optimizing muxes in design 'BaggingDemo_1'.
+              Optimizing muxes in design 'BaggingDemo_2'.
+              Optimizing muxes in design 'TopBagging'.
+              Optimizing muxes in design 'Weight_memory'.
+    Synthesized TopBagging.
+        Computing net loads.
+  Synthesis succeeded.
+Current PLE settings:
+
+Aspect ratio        : 1.00
+Shrink factor       : 1.00
+Scale of res/length : 1.00
+Scale of cap/length : 1.00
+Net derating factor : 1.00
+Thermal factor      : 1.00
+Via Resistance      : 0.00 ohm (from default)
+Site size           : 4.00 um (default)
+
+                                   Capacitance  
+  Layer                             / Length         Data source:
+Name        Direction Utilization  (pF/micron)       default value
+------------------------------------------------
+<default>       U         n/a         0.000250  
+
+** = DEFAULT cap per unit length is used for timing analysis
+
+                                    Resistance   
+  Layer                              / Length         Data source:
+Name        Direction Utilization  (ohm/micron)       default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT res per unit length is used for timing analysis
+
+                                        Area     
+  Layer                               / Length        Data source:
+Name        Direction Utilization     (micron)        default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT area per unit length is used for timing analysis
+
+Warning : Total power has skewed contributions from leakage and dynamic power. [POPT-502]
+        : With 'lp_power_optimization_weight' set to 0.1, the total power of 'CKND2D0HPBWP' is being computed as:
+	  Total Power = (Leakage Power * 0.1) + (Dynamic Power * (1 - 0.1))
+	  Leakage Power:     3.3390000000 nW
+	  Dynamic Power:   850.0000000000 nW
+	  Total Power:     765.3339000000 nW
+	  Leakage Power is contributing 0.0436% to the Total Power.
+Mapping TopBagging to gates.
+      Mapping 'TopBagging'...
+        Preparing the circuit
+          Pruning unused logic
+Multi-threaded constant propagation [1|0] ...
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'add_47_19' of datapath component 'add_signed_13'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'add_47_19' of datapath component 'add_signed_13'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'add_47_19' of datapath component 'add_signed_13'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'inc_add_40_7_3' of datapath component 'increment_unsigned'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'inc_add_40_7_2' of datapath component 'increment_unsigned'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'inc_add_40_7_1' of datapath component 'increment_unsigned'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lt_51_10' of datapath component 'lt_signed'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lt_51_10' of datapath component 'lt_signed'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lt_51_10' of datapath component 'lt_signed'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lte_37_12' of datapath component 'leq_unsigned'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lte_37_12' of datapath component 'leq_unsigned'.
+Info    : A datapath component has been ungrouped. [GB-6]
+        : The instance 'lte_37_12' of datapath component 'leq_unsigned'.
+Inserting clock-gating logic .....
+        
+        New clock gate fanout statistics
+        =================================================
+        Fanout Size           Num CGs     Total FFs 
+        -------------------------------------------------
+        1 to 3                  279       837
+        4 to 15                  12       48
+        =================================================
+
+Info    : Could not find any user created clock-gating module. [POPT-12]
+        : Looking for Integrated clock-gating cell in library.
+Clock Gating Status
+===================
+Category                                Number    Percentage
+------------------------------------------------------------------
+Gated flip-flops                        885		 96%
+Ungated flip-flops
+  Cannot map to requested logic         0		  0%
+  Enable signal is constant             0		  0%
+  Excluded from clock-gating            0		  0%
+  User preserved                        0		  0%
+  Libcell unusable                      0		  0%
+  Enable not found                      27		  3%
+  Timing exception in enable logic      0		  0%
+  Register bank width too small         6		  1%
+Total flip-flops                        918		100%
+Total CG Modules                        291
+Info    : One or more cost groups were automatically created for clock gate enable paths. [POPT-96]
+        : This feature can be disabled by setting the attribute lp_clock_gating_auto_cost_grouping false.
+    Automatically cost grouped 291 clock gate paths.
+Info    : Replacing a flip-flop with a logic constant 0. [GLO-12]
+        : The instance is 'bagging1/i_reg[5]'.
+        : This optimization was enabled by the root attribute 'optimize_constant_0_flops'.
+Info    : Replacing a flip-flop with a logic constant 0. [GLO-12]
+        : The instance is 'bagging2/i_reg[5]'.
+Info    : Replacing a flip-flop with a logic constant 0. [GLO-12]
+        : The instance is 'bagging3/i_reg[5]'.
+Info    : Deleting sequential instances not driving any primary outputs. [GLO-32]
+        : Deleting 3 sequential instances. 
+Following instances are deleted as they do not drive any primary output:
+'bagging1/i_reg[5]', 'bagging2/i_reg[5]', 'bagging3/i_reg[5]'.
+        : Optimizations such as constant propagation or redundancy removal could change the connections so an instance does not drive any primary outputs anymore. To see the list of deleted sequential, set the 'information_level' attribute to 2 or above.
+Info    : Equivalent sequential instances have been merged. [GLO-42]
+        : Instances 'ready_reg' and 'result_reg[0]' in 'BaggingDemo' have been merged.
+        : To prevent merging of sequential instances, set the 'optimize_merge_flops' and 'optimize_merge_latches' root attributes to 'false' or the 'optimize_merge_seq' instance attribute to 'false'.
+Info    : Equivalent sequential instances have been merged. [GLO-42]
+        : Instances 'ready_reg' and 'result_reg[0]' in 'BaggingDemo_1' have been merged.
+Info    : Equivalent sequential instances have been merged. [GLO-42]
+        : Instances 'ready_reg' and 'result_reg[0]' in 'BaggingDemo_2' have been merged.
+Info    : Deleting sequential instances not driving any primary outputs. [GLO-32]
+        : Deleting 3 sequential instances. 
+Following instances are deleted as they do not drive any primary output:
+'bagging1/result_reg[0]', 'bagging2/result_reg[0]', 
+'bagging3/result_reg[0]'.
+          Analyzing hierarchical boundaries
+          Propagating constants
+        Done preparing the circuit
+          Structuring (delay-based) TopBagging...
+          Done structuring (delay-based) TopBagging
+Multi-threaded Virtual Mapping (4 threads, 4 of 40 CPUs usable)
+          Structuring (delay-based) logic partition in BaggingDemo_2...
+            Starting partial collapsing  cb_oseq_113
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in BaggingDemo_2
+        Mapping logic partition in BaggingDemo_2...
+          Structuring (delay-based) logic partition in BaggingDemo_1...
+            Starting partial collapsing  cb_oseq_111
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in BaggingDemo_1
+        Mapping logic partition in BaggingDemo_1...
+          Structuring (delay-based) logic partition in BaggingDemo...
+            Starting partial collapsing  cb_oseq
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in BaggingDemo
+        Mapping logic partition in BaggingDemo...
+          Structuring (delay-based) cb_oseq_119...
+            Starting partial collapsing  cb_oseq_119
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_oseq_119
+        Mapping component cb_oseq_119...
+          Structuring (delay-based) cb_oseq_115...
+            Starting partial collapsing  cb_oseq_115
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_oseq_115
+        Mapping component cb_oseq_115...
+          Structuring (delay-based) cb_oseq_117...
+            Starting partial collapsing  cb_oseq_117
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_oseq_117
+        Mapping component cb_oseq_117...
+        Rebalancing component 'csa_tree_add_39_13_groupi'...
+          Structuring (delay-based) logic partition in TopBagging...
+            Starting partial collapsing  cb_oseq_121
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in TopBagging
+        Mapping logic partition in TopBagging...
+          Structuring (delay-based) csa_tree_add_39_13_group_81...
+            Starting partial collapsing (xors only) csa_tree_add_39_13_group_81
+            Finished partial collapsing.
+            Starting partial collapsing  csa_tree_add_39_13_group_81
+            Finished partial collapsing.
+          Done structuring (delay-based) csa_tree_add_39_13_group_81
+        Mapping component csa_tree_add_39_13_group_81...
+          Structuring (delay-based) logic partition in Weight_memory...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in Weight_memory
+        Mapping logic partition in Weight_memory...
+          Structuring (delay-based) logic partition in Weight_memory_2...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in Weight_memory_2
+        Mapping logic partition in Weight_memory_2...
+          Structuring (delay-based) logic partition in Weight_memory_1...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in Weight_memory_1
+        Mapping logic partition in Weight_memory_1...
+          Structuring (delay-based) logic partition in TopBagging...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in TopBagging
+        Mapping logic partition in TopBagging...
+          Structuring (delay-based) cb_seq_110...
+            Starting partial collapsing (xors only) cb_seq_110
+            Finished partial collapsing.
+            Starting partial collapsing  cb_seq_110
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_seq_110
+        Mapping component cb_seq_110...
+          Structuring (delay-based) cb_seq...
+            Starting partial collapsing (xors only) cb_seq
+            Finished partial collapsing.
+            Starting partial collapsing  cb_seq
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_seq
+        Mapping component cb_seq...
+          Structuring (delay-based) cb_seq_112...
+            Starting partial collapsing (xors only) cb_seq_112
+            Finished partial collapsing.
+            Starting partial collapsing  cb_seq_112
+            Finished partial collapsing.
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) cb_seq_112
+        Mapping component cb_seq_112...
+          Structuring (delay-based) logic partition in TopBagging...
+            Starting redundancy-removal...
+            Finished redundancy-removal...
+          Done structuring (delay-based) logic partition in TopBagging
+        Mapping logic partition in TopBagging...
+ 
+Global mapping target info
+==========================
+Cost Group 'default' target slack:    19 ps
+Target path end-point (Pin: bagging3/temp_reg[10]/d)
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+        : Use 'report timing -lint' for more information.
+        Pin                    Type          Fanout Load Arrival   
+                                                    (fF)   (ps)    
+-------------------------------------------------------------------
+(clock clk)          <<<  launch                               0 R 
+bagging3
+  cb_seqi
+    temp_reg[0]/clk                                                
+    temp_reg[0]/q    (u)  unmapped_d_flop         6 30.0           
+    g672/in_1                                                      
+    g672/z           (u)  unmapped_nand2          3 15.0           
+    g1252/in_1                                                     
+    g1252/z          (u)  unmapped_complex2       1  5.0           
+    g1243/in_0                                                     
+    g1243/z          (u)  unmapped_nand2          3 15.0           
+    g1234/in_1                                                     
+    g1234/z          (u)  unmapped_nand2          1  5.0           
+    g1232/in_1                                                     
+    g1232/z          (u)  unmapped_nand2          3 15.0           
+    g1230/in_1                                                     
+    g1230/z          (u)  unmapped_nand2          1  5.0           
+    g1226/in_1                                                     
+    g1226/z          (u)  unmapped_nand2          3 15.0           
+    g1224/in_1                                                     
+    g1224/z          (u)  unmapped_nand2          1  5.0           
+    g1219/in_1                                                     
+    g1219/z          (u)  unmapped_nand2          3 15.0           
+    g1120/in_0                                                     
+    g1120/z          (u)  unmapped_complex2       1  5.0           
+    g1212/in_0                                                     
+    g1212/z          (u)  unmapped_nand2          3 15.0           
+    g1211/in_1                                                     
+    g1211/z          (u)  unmapped_complex2       1  5.0           
+    g1205/in_1                                                     
+    g1205/z          (u)  unmapped_nand2          3 15.0           
+    g1203/in_1                                                     
+    g1203/z          (u)  unmapped_nand2          1  5.0           
+    g1198/in_1                                                     
+    g1198/z          (u)  unmapped_nand2          5 25.0           
+    g1191/in_1                                                     
+    g1191/z          (u)  unmapped_nand2          1  5.0           
+    g1188/in_1                                                     
+    g1188/z          (u)  unmapped_nand2          2 10.0           
+    g1178/in_1                                                     
+    g1178/z          (u)  unmapped_or2            1  5.0           
+    g1179/in_1                                                     
+    g1179/z          (u)  unmapped_nand2          1  5.0           
+    g1174/in_0                                                     
+    g1174/z          (u)  unmapped_complex2       1  5.0           
+    g1173/in_0                                                     
+    g1173/z          (u)  unmapped_nand2          1  5.0           
+    temp_reg[10]/d   <<<  unmapped_d_flop                          
+    temp_reg[10]/clk      setup                                    
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(clock clk)               capture                           1000 R 
+                          uncertainty                              
+-------------------------------------------------------------------
+Start-point  : bagging3/cb_seqi/temp_reg[0]/clk
+End-point    : bagging3/cb_seqi/temp_reg[10]/d
+
+(u) : Net has unmapped pin(s).
+
+The global mapper estimates a slack for this path of 19ps.
+ 
+Cost Group 'cg_enable_group_clk' target slack:    24 ps
+Target path end-point (Pin: bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST16/RC_CGIC_INST/E (CKLNQD1HPBWP/E))
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+        Pin                        Type          Fanout Load Arrival   
+                                                        (fF)   (ps)    
+-----------------------------------------------------------------------
+(clock clk)            <<<    launch                               0 R 
+bagging3
+  cb_seqi
+    state_reg[1]/clk                                                   
+    state_reg[1]/q     (u)    unmapped_d_flop         3 15.0           
+  cb_seqi/g285_in_0 
+  cb_oseqi/cb_seqi_g285_in_0 
+    g449/in_1                                                          
+    g449/z             (u)    unmapped_or2            2 10.0           
+    g440/in_1                                                          
+    g440/z             (u)    unmapped_or2            2 10.0           
+    g437/in_0                                                          
+    g437/z             (u)    unmapped_complex2       2 10.0           
+    g430/in_1                                                          
+    g430/z             (u)    unmapped_nand2          1  5.0           
+    g428/in_1                                                          
+    g428/z             (u)    unmapped_complex2       2 11.2           
+    g377/in_1                                                          
+    g377/z                    unmapped_complex2       3 13.5           
+  cb_oseqi/PREFIX_lp_clock_gating_RC_CG_HIER_INST14_enable 
+  PREFIX_lp_clock_gating_RC_CG_HIER_INST16/enable 
+    RC_CGIC_INST/E   <<< (P)  CKLNQD1HPBWP                             
+    RC_CGIC_INST/CP           setup                                    
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(clock clk)                   capture                           1000 R 
+                              uncertainty                              
+-----------------------------------------------------------------------
+Cost Group   : 'cg_enable_group_clk' (path_group 'cg_enable_group_clk')
+Start-point  : bagging3/cb_seqi/state_reg[1]/clk
+End-point    : bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST16/RC_CGIC_INST/E
+
+(P) : Instance is preserved
+(u) : Net has unmapped pin(s).
+
+The global mapper estimates a slack for this path of 362ps.
+ 
+          Restructuring (delay-based) logic partition in Weight_memory_2...
+          Done restructuring (delay-based) logic partition in Weight_memory_2
+        Optimizing logic partition in Weight_memory_2...
+          Restructuring (delay-based) logic partition in Weight_memory_1...
+          Done restructuring (delay-based) logic partition in Weight_memory_1
+        Optimizing logic partition in Weight_memory_1...
+          Restructuring (delay-based) logic partition in Weight_memory...
+          Done restructuring (delay-based) logic partition in Weight_memory
+        Optimizing logic partition in Weight_memory...
+          Restructuring (delay-based) logic partition in TopBagging...
+          Done restructuring (delay-based) logic partition in TopBagging
+        Optimizing logic partition in TopBagging...
+          Restructuring (delay-based) cb_seq_112...
+          Done restructuring (delay-based) cb_seq_112
+        Optimizing component cb_seq_112...
+          Restructuring (delay-based) cb_seq...
+          Done restructuring (delay-based) cb_seq
+        Optimizing component cb_seq...
+          Restructuring (delay-based) cb_seq_110...
+          Done restructuring (delay-based) cb_seq_110
+        Optimizing component cb_seq_110...
+          Restructuring (delay-based) logic partition in TopBagging...
+          Done restructuring (delay-based) logic partition in TopBagging
+        Optimizing logic partition in TopBagging...
+          Restructuring (delay-based) logic partition in TopBagging...
+          Done restructuring (delay-based) logic partition in TopBagging
+        Optimizing logic partition in TopBagging...
+          Restructuring (delay-based) csa_tree_add_39_13_group...
+          Done restructuring (delay-based) csa_tree_add_39_13_group
+        Optimizing component csa_tree_add_39_13_group...
+          Restructuring (delay-based) csa_tree_add_39_13_group...
+          Done restructuring (delay-based) csa_tree_add_39_13_group
+        Optimizing component csa_tree_add_39_13_group...
+        Pre-mapped Exploration for csa_tree_add_39_13_group_81 'timing_driven' (slack=-34, area=590)...
+                  			o_slack=-61,  bc_slack=-7
+          Restructuring (delay-based) csa_tree_add_39_13_group...
+          Done restructuring (delay-based) csa_tree_add_39_13_group
+        Optimizing component csa_tree_add_39_13_group...
+          Restructuring (delay-based) csa_tree_add_39_13_group...
+          Done restructuring (delay-based) csa_tree_add_39_13_group
+        Optimizing component csa_tree_add_39_13_group...
+          Restructuring (delay-based) logic partition in BaggingDemo_1...
+          Done restructuring (delay-based) logic partition in BaggingDemo_1
+        Optimizing logic partition in BaggingDemo_1...
+          Restructuring (delay-based) logic partition in BaggingDemo_2...
+          Done restructuring (delay-based) logic partition in BaggingDemo_2
+        Optimizing logic partition in BaggingDemo_2...
+          Restructuring (delay-based) logic partition in BaggingDemo...
+          Done restructuring (delay-based) logic partition in BaggingDemo
+        Optimizing logic partition in BaggingDemo...
+          Restructuring (delay-based) cb_oseq_115...
+          Done restructuring (delay-based) cb_oseq_115
+        Optimizing component cb_oseq_115...
+          Restructuring (delay-based) cb_oseq_117...
+          Done restructuring (delay-based) cb_oseq_117
+        Optimizing component cb_oseq_117...
+          Restructuring (delay-based) cb_oseq_119...
+          Done restructuring (delay-based) cb_oseq_119
+        Optimizing component cb_oseq_119...
+ 
+Global mapping timing result
+============================
+        Tracing clock networks.
+        Levelizing the circuit.
+        Computing net loads.
+        Computing delays.
+        Computing arrivals and requireds.
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+       Pin                      Type       Fanout Load Slew Delay Arrival   
+                                                  (fF) (ps)  (ps)   (ps)    
+----------------------------------------------------------------------------
+(clock clk)                  launch                                     0 R 
+bagging1
+  cb_seqi
+    i_reg[3]/CP                                           0             0 R 
+    i_reg[3]/Q               DFCNQD1HPBWP       2 10.2   70  +129     129 R 
+  cb_seqi/g315_in_1 
+  cb_oseqi/cb_seqi_g315_in_1 
+    g557/A1                                                    +0     129   
+    g557/Z                   AN2XD1HPBWP        2 10.0   68   +77     206 R 
+    g552/A1                                                    +0     206   
+    g552/ZN                  ND3D1HPBWP         2  9.5  119   +88     294 F 
+    g543/A2                                                    +0     294   
+    g543/Z                   AN2XD1HPBWP        3 13.4   58   +86     380 F 
+    g538/A3                                                    +0     380   
+    g538/Z                   OR3D1HPBWP         2  9.5   58   +96     476 F 
+    g537/A1                                                    +0     476   
+    g537/ZN                  IND2D1HPBWP        3 13.5  113  +111     587 F 
+  cb_oseqi/PREFIX_lp_clock_gating_RC_CG_HIER_INST0_enable 
+  PREFIX_lp_clock_gating_RC_CG_HIER_INST0/enable 
+    RC_CGIC_INST/E  <<< (P)  CKLNQD1HPBWP                      +0     587   
+    RC_CGIC_INST/CP          setup                        0   +52     638 R 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(clock clk)                  capture                                 1000 R 
+                             uncertainty                     -150     850 R 
+----------------------------------------------------------------------------
+Cost Group   : 'cg_enable_group_clk' (path_group 'cg_enable_group_clk')
+Timing slack :     212ps 
+Start-point  : bagging1/cb_seqi/i_reg[3]/CP
+End-point    : bagging1/PREFIX_lp_clock_gating_RC_CG_HIER_INST0/RC_CGIC_INST/E
+
+(P) : Instance is preserved
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+       Pin                  Type       Fanout Load Slew Delay Arrival   
+                                              (fF) (ps)  (ps)   (ps)    
+------------------------------------------------------------------------
+(clock clk)              launch                                     0 R 
+bagging1
+  cb_seqi
+    temp_reg[0]/CP                                    0             0 R 
+    temp_reg[0]/Q        DFCNQD4HPBWP       5 28.2   57  +138     138 R 
+    g1930/A1                                               +0     138   
+    g1930/ZN             ND2D4HPBWP         3 16.7   41   +39     177 F 
+    g1887/A2                                               +0     177   
+    g1887/ZN             OAI21D4HPBWP       3 16.6   74   +59     236 R 
+    g1879/A1                                               +0     236   
+    g1879/ZN             AOI21D4HPBWP       2 13.8   43   +42     278 F 
+    g1872/A1                                               +0     278   
+    g1872/ZN             OAI21D4HPBWP       2 11.4   59   +45     323 R 
+    g1867/A1                                               +0     323   
+    g1867/ZN             ND2D2HPBWP         1 10.4   47   +43     366 F 
+    g1866/A1                                               +0     366   
+    g1866/ZN             ND2D4HPBWP         3 17.8   52   +34     400 R 
+    g1862/A1                                               +0     400   
+    g1862/ZN             OAI21D4HPBWP       2 15.1   49   +39     438 F 
+    g1857/A1                                               +0     438   
+    g1857/ZN             OAI21D4HPBWP       2 11.7   66   +47     486 R 
+    g1852/A1                                               +0     486   
+    g1852/Z              AO21D4HPBWP        4 28.6   52   +76     561 R 
+    g1849/I                                                +0     561   
+    g1849/ZN             INVD6HPBWP         2 15.2   21   +22     583 F 
+    g1845/A1                                               +0     583   
+    g1845/ZN             AOI21D4HPBWP       2 14.5   77   +44     627 R 
+    g1838/A1                                               +0     627   
+    g1838/ZN             NR2XD2HPBWP        2 15.3   41   +44     670 F 
+    g1837/I                                                +0     670   
+    g1837/ZN             INVD4HPBWP         1  7.6   21   +22     692 R 
+    g1833/A1                                               +0     692   
+    g1833/ZN             ND2D2HPBWP         1  7.6   52   +28     720 F 
+    g1830/A1                                               +0     720   
+    g1830/ZN             ND2D2HPBWP         1  7.6   34   +32     753 R 
+    g1827/A1                                               +0     753   
+    g1827/ZN             ND2D2HPBWP         1  7.6   42   +31     784 F 
+    g1824/B                                                +0     784   
+    g1824/ZN             IOA21D2HPBWP       1  6.3   36   +28     812 R 
+    temp_reg[10]/D  <<<  DFCNQD4HPBWP                      +0     812   
+    temp_reg[10]/CP      setup                        0   +29     840 R 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(clock clk)              capture                                 1000 R 
+                         uncertainty                     -150     850 R 
+------------------------------------------------------------------------
+Timing slack :      10ps 
+Start-point  : bagging1/cb_seqi/temp_reg[0]/CP
+End-point    : bagging1/cb_seqi/temp_reg[10]/D
+
+ 
+ 
+Global mapping status
+=====================
+                                   Group   
+                                  Tot Wrst 
+                           Total  Weighted 
+Operation                   Area   Slacks  
+-------------------------------------------------------------------------------
+ global_map                13993        0 
+ 
+Global incremental target info
+==============================
+Cost Group 'default' target slack:    10 ps
+Target path end-point (Pin: bagging3/temp_reg[10]/D (DFCNQD4HPBWP/D))
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+       Pin                  Type       Fanout Load Arrival   
+                                              (fF)   (ps)    
+-------------------------------------------------------------
+(clock clk)         <<<  launch                          0 R 
+bagging3
+  cb_seqi
+    temp_reg[0]/CP                                           
+    temp_reg[0]/Q        DFCNQD4HPBWP       5 28.2           
+    g1930/A1                                                 
+    g1930/ZN             ND2D4HPBWP         3 16.7           
+    g1887/A2                                                 
+    g1887/ZN             OAI21D4HPBWP       3 16.6           
+    g1879/A1                                                 
+    g1879/ZN             AOI21D4HPBWP       2 13.8           
+    g1872/A1                                                 
+    g1872/ZN             OAI21D4HPBWP       2 11.4           
+    g1867/A1                                                 
+    g1867/ZN             ND2D2HPBWP         1 10.4           
+    g1866/A1                                                 
+    g1866/ZN             ND2D4HPBWP         3 17.8           
+    g1862/A1                                                 
+    g1862/ZN             OAI21D4HPBWP       2 15.1           
+    g1857/A1                                                 
+    g1857/ZN             OAI21D4HPBWP       2 11.7           
+    g1852/A1                                                 
+    g1852/Z              AO21D4HPBWP        4 28.6           
+    g1849/I                                                  
+    g1849/ZN             INVD6HPBWP         2 15.2           
+    g1845/A1                                                 
+    g1845/ZN             AOI21D4HPBWP       2 14.5           
+    g1838/A1                                                 
+    g1838/ZN             NR2XD2HPBWP        2 15.3           
+    g1837/I                                                  
+    g1837/ZN             INVD4HPBWP         1  7.6           
+    g1833/A1                                                 
+    g1833/ZN             ND2D2HPBWP         1  7.6           
+    g1830/A1                                                 
+    g1830/ZN             ND2D2HPBWP         1  7.6           
+    g1827/A1                                                 
+    g1827/ZN             ND2D2HPBWP         1  7.6           
+    g1824/B                                                  
+    g1824/ZN             IOA21D2HPBWP       1  6.3           
+    temp_reg[10]/D  <<<  DFCNQD4HPBWP                        
+    temp_reg[10]/CP      setup                               
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(clock clk)              capture                      1000 R 
+                         uncertainty                         
+-------------------------------------------------------------
+Start-point  : bagging3/cb_seqi/temp_reg[0]/CP
+End-point    : bagging3/cb_seqi/temp_reg[10]/D
+
+The global mapper estimates a slack for this path of 7ps.
+ 
+Cost Group 'cg_enable_group_clk' target slack:    15 ps
+Target path end-point (Pin: bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST16/RC_CGIC_INST/E (CKLNQD1HPBWP/E))
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+       Pin                      Type       Fanout Load Arrival   
+                                                  (fF)   (ps)    
+-----------------------------------------------------------------
+(clock clk)           <<<    launch                          0 R 
+bagging3
+  cb_seqi
+    i_reg[3]/CP                                                  
+    i_reg[3]/Q               DFCNQD1HPBWP       2 10.2           
+  cb_seqi/g315_in_1 
+  cb_oseqi/cb_seqi_g315_in_1 
+    g557/A1                                                      
+    g557/Z                   AN2XD1HPBWP        2 10.0           
+    g552/A1                                                      
+    g552/ZN                  ND3D1HPBWP         2  9.5           
+    g543/A2                                                      
+    g543/Z                   AN2XD1HPBWP        3 13.4           
+    g538/A3                                                      
+    g538/Z                   OR3D1HPBWP         2  9.5           
+    g537/A1                                                      
+    g537/ZN                  IND2D1HPBWP        3 13.5           
+  cb_oseqi/PREFIX_lp_clock_gating_RC_CG_HIER_INST14_enable 
+  PREFIX_lp_clock_gating_RC_CG_HIER_INST16/enable 
+    RC_CGIC_INST/E  <<< (P)  CKLNQD1HPBWP                        
+    RC_CGIC_INST/CP          setup                               
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(clock clk)                  capture                      1000 R 
+                             uncertainty                         
+-----------------------------------------------------------------
+Cost Group   : 'cg_enable_group_clk' (path_group 'cg_enable_group_clk')
+Start-point  : bagging3/cb_seqi/i_reg[3]/CP
+End-point    : bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST16/RC_CGIC_INST/E
+
+(P) : Instance is preserved
+
+The global mapper estimates a slack for this path of 148ps.
+ 
+ 
+Global incremental timing result
+================================
+        Tracing clock networks.
+        Levelizing the circuit.
+        Computing net loads.
+        Computing delays.
+        Computing arrivals and requireds.
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+       Pin                      Type       Fanout Load Slew Delay Arrival   
+                                                  (fF) (ps)  (ps)   (ps)    
+----------------------------------------------------------------------------
+(clock clk)                  launch                                     0 R 
+bagging1
+  cb_seqi
+    i_reg[3]/CP                                           0             0 R 
+    i_reg[3]/Q               DFCNQD1HPBWP       3 13.0   86  +138     138 R 
+  cb_seqi/g315_in_1 
+  cb_oseqi/cb_seqi_g315_in_1 
+    g557/A1                                                    +0     138   
+    g557/Z                   AN2XD1HPBWP        2 10.0   68   +80     218 R 
+    g552/A1                                                    +0     218   
+    g552/ZN                  ND3D1HPBWP         2 10.0  124   +91     308 F 
+    g543/A2                                                    +0     308   
+    g543/Z                   AN2XD1HPBWP        3 13.4   58   +87     395 F 
+    g538/A3                                                    +0     395   
+    g538/Z                   OR3D1HPBWP         2  9.5   58   +96     492 F 
+    g537/A1                                                    +0     492   
+    g537/ZN                  IND2D1HPBWP        3 13.5  117  +111     602 F 
+  cb_oseqi/PREFIX_lp_clock_gating_RC_CG_HIER_INST0_enable 
+  PREFIX_lp_clock_gating_RC_CG_HIER_INST0/enable 
+    RC_CGIC_INST/E  <<< (P)  CKLNQD1HPBWP                      +0     602   
+    RC_CGIC_INST/CP          setup                        0   +52     654 R 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(clock clk)                  capture                                 1000 R 
+                             uncertainty                     -150     850 R 
+----------------------------------------------------------------------------
+Cost Group   : 'cg_enable_group_clk' (path_group 'cg_enable_group_clk')
+Timing slack :     196ps 
+Start-point  : bagging1/cb_seqi/i_reg[3]/CP
+End-point    : bagging1/PREFIX_lp_clock_gating_RC_CG_HIER_INST0/RC_CGIC_INST/E
+
+(P) : Instance is preserved
+
+Warning : Possible timing problems have been detected in this design. [TIM-11]
+        : The design is 'TopBagging'.
+        Pin                   Type       Fanout Load Slew Delay Arrival   
+                                                (fF) (ps)  (ps)   (ps)    
+--------------------------------------------------------------------------
+(clock clk)                launch                                     0 R 
+m1
+  cb_oseqi
+    dataout_reg[1]/CP                                   0             0 R 
+    dataout_reg[1]/Q       DFQD4HPBWP         2 14.1   30  +110     110 F 
+  cb_oseqi/dataout[1] 
+m1/dataout[1] 
+bagging1/weight[1] 
+  csa_tree_add_39_13_groupi/in_1[1] 
+    g929/A1                                                  +0     110   
+    g929/ZN                ND2D3HPBWP         2 15.5   42   +31     141 R 
+    g940/A1                                                  +0     141   
+    g940/ZN                IND2D4HPBWP        1 10.9   29   +44     185 R 
+    g907/A2                                                  +0     185   
+    g907/ZN                ND2D4HPBWP         2 15.5   37   +34     219 F 
+    g903/A2                                                  +0     219   
+    g903/ZN                ND2D3HPBWP         2 14.0   40   +34     253 R 
+    g901/B                                                   +0     253   
+    g901/ZN                OAI21D4HPBWP       2  9.9   38   +40     293 F 
+    g869/A1                                                  +0     293   
+    g869/ZN                INR2XD2HPBWP       1 11.1   38   +68     361 F 
+    g858/A1                                                  +0     361   
+    g858/ZN                NR2XD3HPBWP        3 19.3   52   +39     400 R 
+    g851/A1                                                  +0     400   
+    g851/ZN                NR2XD3HPBWP        2 13.5   41   +30     430 F 
+    g848/A1                                                  +0     430   
+    g848/ZN                AOI21D4HPBWP       2 14.0   73   +48     478 R 
+    g842/A1                                                  +0     478   
+    g842/ZN                OAI21D4HPBWP       3 17.7   54   +46     524 F 
+    g840/A1                                                  +0     524   
+    g840/ZN                AOI21D4HPBWP       2 14.0   78   +51     575 R 
+    g835/A1                                                  +0     575   
+    g835/ZN                OAI21D4HPBWP       3 17.7   58   +48     622 F 
+    g833/A1                                                  +0     622   
+    g833/ZN                AOI21D4HPBWP       1  7.0   60   +40     663 R 
+    g831/A1                                                  +0     663   
+    g831/Z                 XOR2D2HPBWP        1  9.1   46   +99     762 F 
+  csa_tree_add_39_13_groupi/out_0[11] 
+  cb_seqi/csa_tree_add_39_13_groupi_out_0[11] 
+    g1908/A1                                                 +0     762   
+    g1908/ZN               ND2D3HPBWP         1  7.6   44   +27     789 R 
+    g1821/A1                                                 +0     789   
+    g1821/ZN               ND2D2HPBWP         1  6.2   33   +31     820 F 
+    temp_reg[11]/D    <<<  DFCNQD1HPBWP                      +0     820   
+    temp_reg[11]/CP        setup                        0   +12     832 R 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(clock clk)                capture                                 1000 R 
+                           uncertainty                     -150     850 R 
+--------------------------------------------------------------------------
+Timing slack :      18ps 
+Start-point  : m1/cb_oseqi/dataout_reg[1]/CP
+End-point    : bagging1/cb_seqi/temp_reg[11]/D
+
+ 
+ 
+Global incremental optimization status
+======================================
+                                   Group   
+                                  Tot Wrst 
+                           Total  Weighted 
+Operation                   Area   Slacks  
+-------------------------------------------------------------------------------
+ global_incr               14031        0 
+
+Scan mapping status report
+==========================
+    Scan mapping: converting flip-flops that pass TDRC.
+    Scan mapping: bypassed.  You have to either 1) set attribute 'dft_scan_map_mode' to 'tdrc_pass' and run 'check_dft_rules' or 2) set attribute 'dft_scan_map_mode' to 'force_all'.
+
+    Scan mapping bypassed because no TDRC data is available: either command 'check_dft_rules' has not been run or TDRC data has been subsequently invalidated.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging1/PREFIX_lp_clock_gating_RC_CG_HIER_INST4' is driving '2' flops.
+        : Either the 'lp_clock_gating_min_flops' constraint value was changed or the driven flops were optimized. If the clock gating instance is not preserved it might be removed.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging1/PREFIX_lp_clock_gating_RC_CG_HIER_INST6' is driving '2' flops.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging2/PREFIX_lp_clock_gating_RC_CG_HIER_INST11' is driving '2' flops.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging2/PREFIX_lp_clock_gating_RC_CG_HIER_INST13' is driving '2' flops.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST18' is driving '2' flops.
+Info    : The clock gating instance is violating the 'lp_clock_gating_min_flops' constraint. [POPT-71]
+        : The clock gating instance 'bagging3/PREFIX_lp_clock_gating_RC_CG_HIER_INST20' is driving '2' flops.
+Info    : 'Conformal LEC14.1-p100' or later builds is recommended for verification. [WDO-600]
+        : The use of 'Conformal LEC14.1-p100' or later builds is recommended to get better verification results.
+Generating a dofile for design 'TopBagging' in file 'fv/TopBagging/rtl_to_g1.do' ...
+
+  Done mapping TopBagging
+  Synthesis succeeded.
+Current PLE settings:
+
+Aspect ratio        : 1.00
+Shrink factor       : 1.00
+Scale of res/length : 1.00
+Scale of cap/length : 1.00
+Net derating factor : 1.00
+Thermal factor      : 1.00
+Via Resistance      : 0.00 ohm (from default)
+Site size           : 4.00 um (default)
+
+                                   Capacitance  
+  Layer                             / Length         Data source:
+Name        Direction Utilization  (pF/micron)       default value
+------------------------------------------------
+<default>       U         n/a         0.000250  
+
+** = DEFAULT cap per unit length is used for timing analysis
+
+                                    Resistance   
+  Layer                              / Length         Data source:
+Name        Direction Utilization  (ohm/micron)       default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT res per unit length is used for timing analysis
+
+                                        Area     
+  Layer                               / Length        Data source:
+Name        Direction Utilization     (micron)        default value
+-------------------------------------------------
+<default>       U         n/a          0.000000  
+
+** = DEFAULT area per unit length is used for timing analysis
+
+Warning : Total power has skewed contributions from leakage and dynamic power. [POPT-502]
+        : With 'lp_power_optimization_weight' set to 0.1, the total power of 'CKND2D0HPBWP' is being computed as:
+	  Total Power = (Leakage Power * 0.1) + (Dynamic Power * (1 - 0.1))
+	  Leakage Power:     3.3390000000 nW
+	  Dynamic Power:   850.0000000000 nW
+	  Total Power:     765.3339000000 nW
+	  Leakage Power is contributing 0.0436% to the Total Power.
+  Incrementally optimizing TopBagging
+Info    : One or more cost groups were automatically created for clock gate enable paths. [POPT-96]
+    Automatically cost grouped 285 clock gate paths.
+  Decloning clock-gating logic from /designs/TopBagging
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging1/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST0' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+        : Reset the 'lp_clock_gating_max_flops' attribute to a bigger number and re-run the command.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging1/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST1' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging1/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST2' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging1/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST5' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging2/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST12' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging2/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST7' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging2/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST8' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging2/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST9' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging3/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST14' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging3/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST15' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging3/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST16' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Clock-gating instance '/designs/TopBagging/instances_hier/bagging3/instances_hier/PREFIX_lp_clock_gating_RC_CG_HIER_INST19' gates 4 flops. The 'lp_clock_gating_max_flops' attribute is set to 4.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Info    : Could not declone clock-gating instances. [POPT-50]
+        : Rejected a group of 3 clock-gating instances for decloning since they together gate 9 flops which is greater than the max flops constraint set by 'lp_clock_gating_max_flops' attribute.
+Clock-gating declone status
+===========================
+Total number of clock-gating instances before: 285
+Total number of clock-gating instances after : 285
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - - - DRC Totals - - - -
+                           Total  Weighted      Neg      Max       Max     Max  
+Operation                   Area   Slacks      Slack    Trans      Cap   Fanout 
+-------------------------------------------------------------------------------
+ init_iopt                 14057        0         0         0        0        0
+ const_prop                14048        0         0         0        0        0
+ simp_cc_inputs            14016        0         0         0        0        0
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - - - DRC Totals - - - -
+                           Total  Weighted      Neg      Max       Max     Max  
+Operation                   Area   Slacks      Slack    Trans      Cap   Fanout 
+-------------------------------------------------------------------------------
+ init_delay                14016        0         0         0        0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+       crit_upsz         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+       plc_ba_st         0  (        0 /        0 )  0.00
+     plc_ba_star         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         0  (        0 /        0 )  0.00
+       gcomp_tim         0  (        0 /        0 )  0.00
+  inv_pair_2_buf         0  (        0 /        0 )  0.00
+
+ init_drc                  14016        0         0         0        0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+ init_tns                  14016        0         0         0        0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+       plc_ba_st         0  (        0 /        0 )  0.00
+     plc_ba_star         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+       plc_ba_st         0  (        0 /        0 )  0.00
+     plc_ba_star         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+
+                                   Group   
+                                  Tot Wrst     Total - - - - DRC Totals - - - -
+                           Total  Weighted      Neg      Max       Max     Max      Switching 
+Operation                   Area   Slacks      Slack    Trans      Cap   Fanout       Power   
+-------------------------------------------------------------------------------
+ init_power                14016        0         0         0        0        0    3642593 
+ p_rem_buf                 13923        0         0         0        0        0    3634271 
+ p_rem_inv                 13880        0         0         0        0        0    3631954 
+ io_phase                  13876        0         0         0        0        0    3631145 
+ gate_comp                 13863        0         0         0        0        0    3629195 

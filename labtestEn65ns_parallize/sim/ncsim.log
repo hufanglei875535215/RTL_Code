@@ -1,0 +1,11 @@
+ncsim: 15.10-s002: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+ncsim> ##stop -condition { #Testbench2.fsm.state=8'b00000100 }
+ncsim> #stop -condition { #Testbench2.fsm.ready==1 && #Testbench2.fsm.clk=0 }
+ncsim> stop -condition { #AdaBoostTopBagging_Test.bagging.total_predict==1 && #AdaBoostTopBagging_Test.bagging.clk==0 }
+Created stop 1
+ncsim> ##stop -condition { #AdaBoostTopBagging_Test.bagging.flag==1 }
+ncsim> dumptcf -scope AdaBoostTopBagging_Test.bagging -output tcf.dump -overwrite
+ncsim> run
+73 US + 1 (stop 1: AdaBoostTopBagging_Test.bagging.clk = 0, AdaBoostTopBagging_Test.bagging.total_predict = 1)
+ncsim> dumptcf -end
+ncsim> exit

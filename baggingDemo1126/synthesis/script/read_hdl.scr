@@ -1,0 +1,9 @@
+# File: read_hdl.scr
+
+# define design files:
+set VERILOG_FILES { \
+	TopBagging \
+	Weight_memory \
+	BaggingDemo \
+       }
+

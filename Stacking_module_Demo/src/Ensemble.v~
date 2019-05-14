@@ -1,0 +1,206 @@
+
+module fsm_HandEn(clk,rst,start,ready,result,write1,write2,Enin,datain);
+input clk,rst,start;
+input write1;
+input write2;
+input signed [8:0] Enin;
+input signed [1:0]datain;
+output signed[1:0] result;
+output ready;
+reg ready;
+reg read1,read2;
+reg  signed[1:0] result;
+reg signed[15:0] reg_step1;//tongjichu xiangying de diyici jisuan de zhi  3 mulpitly
+reg signed[15:0] reg_step2;//tongji chu dier ci chengfa de shuju zhi 
+reg signed[15:0] reg_step3;// tongji chu zuihou de shuju zhi 
+reg signed[15:0] last;
+wire signed[8:0] Enout;
+wire signed[1:0] dataOut;
+reg [10:0] i,j,k;// i can be switched and j can be switch too
+reg [7:0] state;
+parameter IDLE=8'b00000000, setdata1=8'b00000001,setdata2=8'b00000010,step1=8'b00000100,step2=8'b00001000,step3=8'b00010000,step4=8'b00100000,step5=8'b01000000,step6=8'b10000000,finish=8'b10000001,break=8'b10000010;
+parameter signed bias1=9'b101100100,bias2=9'b100000001,bias3=9'b100000101;
+parameter alphas1=8'd255,alphas2=8'd238,alphas3=8'd210;
+always@(posedge clk or negedge rst)
+begin
+	if(!rst)
+	begin
+		state<=IDLE;
+		result<=0;
+		ready<=0;
+		read1<=0;
+		read2<=0;
+		reg_step1<=0;
+		reg_step2<=0;
+		reg_step3<=0;
+		last<=0;
+		i<=0;j<=0;k<=0;		
+	end
+	else
+		case(state)
+			IDLE:begin
+				if(start)
+				begin
+					state<=setdata1;
+					
+				end
+				else
+					state<=IDLE;
+			     end
+			setdata1:begin
+				if(write1)
+					begin
+							
+							if(i==90)
+								begin
+									i<=i-90;
+									state<=setdata2;
+									read1<=1;
+									
+
+									
+									//en<=1;
+								end
+							else
+								begin
+									i<=i+1;
+									state<=setdata1;
+								end
+							
+					end// adjust
+				end
+			setdata2:begin
+				if(write2)
+					begin
+						if(j==30)
+							begin
+									
+								state<=step1;
+								read2<=1;
+								j<=j-30;
+								
+									
+							end
+						else
+							begin
+							
+							j<=j+1;		
+							state<=setdata2;
+							end
+							
+					end
+				 end
+			step1:begin
+				if(j==30)
+				begin
+					state<=step2;
+					j<=j-30;
+				end
+				else
+				begin
+				reg_step1<=reg_step1+Enout*dataOut;
+				i<=i+1;
+				j<=j+1;//j lai biaoshi test data de xunhuan
+				state<=step1;
+				end
+			      end
+			step2:begin
+				if((reg_step1+bias1)>=0)
+					begin
+					reg_step2<=reg_step2+alphas1;
+					reg_step1<=0;
+					end
+				else
+					reg_step2<=reg_step2-alphas1;
+					reg_step1<=0;
+				state<=step3;
+			      end
+			step3:begin
+				if(j==30)
+				begin
+					state<=step4;
+					j<=j-30;
+				end
+				else
+				begin
+				reg_step1<=reg_step1+Enout*dataOut;
+				i<=i+1;
+				j<=j+1;//j lai biaoshi test data de xunhuan
+				state<=step3;
+				end
+			      end
+			step4:begin
+				if((reg_step1+bias2)>=0)
+					begin
+					reg_step2<=reg_step2+alphas2;
+					reg_step1<=0;
+					state<=step5;
+					end
+				else
+				begin
+				reg_step2<=reg_step2-alphas2;
+				reg_step1<=0;
+				state<=step5;
+				end
+			      end
+			step5:begin
+				if(j==30)
+				begin
+					state<=step6;
+					j<=j-30;
+				end
+				else
+				begin
+				reg_step1<=reg_step1+Enout*dataOut;
+				i<=i+1;
+				j<=j+1;//j lai biaoshi test data de xunhuan
+				state<=step5;
+				end
+			      end
+			step6:begin
+				if((reg_step1+bias3)>=0)
+					begin
+					reg_step2<=reg_step2+alphas3;
+					reg_step1<=0;
+					state<=finish;
+					end
+				else
+				begin
+					reg_step2<=reg_step2-alphas3;
+					reg_step1<=0;
+					state<=finish;
+				end
+			      end
+			finish:begin
+				if(reg_step2>=0)
+					begin
+						result<=1;
+						ready<=1;
+					end
+				else
+					begin	
+						result<=-1;
+						ready<=1;
+					end
+				state<=break;
+				end
+			break:
+				begin
+					state<=IDLE;
+					result<=0;
+					ready<=0;
+					read1<=0;
+					read2<=0;
+					reg_step1<=0;
+					reg_step2<=0;
+					reg_step3<=0;
+					last<=0;
+					i<=0;
+					j<=0;
+					k<=0;	
+				end
+		endcase
+end
+Enstorage enweight(.clk(clk),.dataIn(Enin),.address(i),.read(read1),.write(write1),.dataOut(Enout));
+testDataModule testModule(.clk(clk),.dataIn(datain),.address(j),.read(read2),.write(write2),.dataOut(dataOut));
+endmodule

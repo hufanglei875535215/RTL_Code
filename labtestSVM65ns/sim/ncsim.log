@@ -1,0 +1,13 @@
+ncsim: 15.10-s002: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm Testbench.clk Testbench.datamemory Testbench.i Testbench.j Testbench.memory Testbench.ready Testbench.result Testbench.rst Testbench.start Testbench.svmdata Testbench.testdata Testbench.write1 Testbench.write2
+Created probe 1
+ncsim> run
+Simulation interrupted at 19049447500 PS + 0
+ncsim> ^C
+ncsim> exit

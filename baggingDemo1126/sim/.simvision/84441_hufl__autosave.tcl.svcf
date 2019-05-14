@@ -1,0 +1,488 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-SimControl-WaveWindow {
+  usual
+  position -anchor e
+}
+preferences set cursorctl-dont-show-sync-warning 1
+preferences set toolbar-txe_waveform_toggle-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 2
+}
+preferences set whats-new-dont-show-at-startup 1
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 730x500+261+33}] != ""} {
+    window geometry "Design Browser 1" 730x500+261+33
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::TopBaggingTest 
+browser set \
+    -signalsort name
+browser yview see  simulator::TopBaggingTest 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1280x948+0+25}] != ""} {
+    window geometry "Waveform 1" 1280x948+0+25
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 141 \
+    -units ps \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.data1[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.data2[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.data3[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bias1[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bias2[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bias3[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.data[29:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.en
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.flag
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.i[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.ii[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.j[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.jj[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.k[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.kk[4:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.read1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.read2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.read3
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.rst
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.state[3:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.step1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.step2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.total_ready
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.total_result[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight3M[0:29]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.write1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.write2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.write3
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.address1[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.address2[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.address3[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bias1[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bias2[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bias3[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight1M[0:29]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight1[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight2[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight2M[0:29]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.weight3[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.data1[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.data2[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.data3[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.en
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.finish1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.finish2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.finish3
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.flag
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.read1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.read2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.read3
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.ready1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.ready2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.ready3
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.result1[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.result2[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.result3[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.rst
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.total_predict[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.total_ready
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight1[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight1out[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight2[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight2out[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight3[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.weight3out[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.write1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.write2
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.write3
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.IDEA
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.bias[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.data[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.en
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.i[5:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.ready
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.result[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.rst
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.state[3:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.step1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging1.step2
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.temp[11:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging1.weight[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.IDEA
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.bias[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.data[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.en
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.i[5:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.ready
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.result[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging2.rst
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.temp[11:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging2.weight[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.IDEA
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.bias[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.data[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.en
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.i[5:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.ready
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.result[1:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.rst
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.state[3:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.step1
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.bagging3.step2
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.temp[11:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.bagging3.weight[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m1.address[4:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m1.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m1.datain[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m1.dataout[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m1.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m1.memory[0:29]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m1.read
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m1.write
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m2.address[4:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m2.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m2.datain[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m2.dataout[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m2.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m2.memory[0:29]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m2.read
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m2.write
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m3.address[4:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m3.clk
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m3.datain[8:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m3.dataout[8:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m3.finish
+	} ]
+set id [waveform add -signals  {
+	{simulator::TopBaggingTest.bagging.m3.memory[0:29]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m3.read
+	} ]
+set id [waveform add -signals  {
+	simulator::TopBaggingTest.bagging.m3.write
+	} ]
+
+waveform xview limits 51200ps 563200ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+261+564
+
+#
+# Layout selection
+#

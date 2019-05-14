@@ -1,0 +1,80 @@
+
+module Testbench2;
+reg clk;
+reg rst;
+reg start;
+reg write1,write2;
+wire ready;
+wire signed[1:0] result;
+reg signed [1:0] datamemory[0:599];
+reg signed[8:0] memory[0:89];
+reg signed [8:0] Enin;
+reg signed [1:0] datain;//moni shuru de guocheng yiji moni shuchu de guocheng;
+reg[10:0] i;
+reg [10:0] j;
+initial
+	$readmemb("../src/testEnsembleData.txt",datamemory);
+
+initial
+	$readmemb("../src/EnsembleWeight.txt",memory);
+
+initial
+	begin
+	clk=0;
+	rst=1;
+	write1=0;
+	write2=0;
+	start=0;
+	i=0;
+	j=0;
+	Enin<=9'b110000001;
+	datain<=2'b00;
+	#100 rst=0;
+	#100 rst=1;
+	#100 start=1;
+	#100 write1=1;
+	#100 start=0;
+	
+	end
+always #2.5 clk=~clk;
+always@(posedge clk)
+begin
+	if(write1)
+		if(i==90)
+		begin
+		write1<=0;
+		write2<=1;
+		i<=0;
+		end
+		else
+		begin
+		
+		i=i+1;
+		Enin<=memory[i];
+		
+		end	
+end
+always@(posedge clk)
+begin
+	if(write2)
+	begin
+		if(j==30)
+		begin
+			write2<=0;
+			j<=0;
+			
+		end
+		else
+		begin
+		
+		j=j+1;
+		datain<=datamemory[j];
+		
+		
+		end		
+	end
+end
+
+
+fsm_HandEn fsm(.clk(clk),.rst(rst),.start(start),.ready(ready),.result(result),.write1(write1),.write2(write2),.Enin(Enin),.datain(datain));
+endmodule

@@ -1,0 +1,7 @@
+# File: read_hdl.scr
+
+# define design files:
+set VERILOG_FILES { \
+        fsm_Hand \
+       }
+

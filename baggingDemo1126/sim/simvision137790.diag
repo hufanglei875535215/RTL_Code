@@ -1,0 +1,88 @@
+*** Message Type: info ***
+When: Tue Mar 19 12:35:48 PM HKT 2019
+SimVision started.
+Version: TOOL:  simvision       15.10-s002
+User: hufl
+Host: VLSI-01
+Platform: Linux/x86_64/2.6.32-642.el6.x86_64
+Started: Tue Mar 19 12:35:48 PM HKT 2019
+Command: /eda/cadence/2015-16/RHELx86/INCISIVE_15.10.002/tools.lnx86/simvision/bin/simvision.exe -connect dc:VLSI-01:51698
+Work Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+ 
+*** Message Type: info ***
+When: Tue Mar 19 12:35:48 PM HKT 2019
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Mar 19 12:35:49 PM HKT 2019
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Mar 19 12:35:50 PM HKT 2019
+Connect to Simulator
+      Design: work.TopBaggingTest
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:        ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Mar 19 12:35:41 PM HKT 2019
+  Process ID: 137783
+   Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+     Command: ncsim -GUI work.TopBaggingTest
+
+ 
+*** Message Type: info ***
+When: Tue Mar 19 12:35:50 PM HKT 2019
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Mar 19 12:35:58 PM HKT 2019
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Fri Apr 19 11:20:03 AM HKT 2019
+Exit NC-Sim: user
+      Design: work.TopBaggingTest
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:        ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Mar 19 12:35:41 PM HKT 2019
+  Process ID: 137783
+   Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+     Command: ncsim -GUI work.TopBaggingTest
+
+ 
+*** Message Type: error ***
+When: Fri Apr 19 11:20:03 AM HKT 2019
+NC-Sim Crashed:
+      Design: work.TopBaggingTest
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:        ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Mar 19 12:35:41 PM HKT 2019
+  Process ID: 137783
+   Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+     Command: ncsim -GUI work.TopBaggingTest
+      Design: work.TopBaggingTest
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:     ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Mar 19 12:35:41 PM HKT 2019
+  Process ID: 137783
+   Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+     Command: ncsim -GUI work.TopBaggingTest
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Fri Apr 19 11:20:08 AM HKT 2019
+SimVision Exit.
+ 

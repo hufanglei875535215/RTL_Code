@@ -1,0 +1,71 @@
+*** Message Type: info ***
+When: Wed Nov 28 10:53:39 AM HKT 2018
+SimVision started.
+Version: TOOL:  simvision       15.10-s002
+User: hufl
+Host: VLSI-01
+Platform: Linux/x86_64/2.6.32-642.el6.x86_64
+Started: Wed Nov 28 10:53:39 AM HKT 2018
+Command: /eda/cadence/2015-16/RHELx86/INCISIVE_15.10.002/tools.lnx86/simvision/bin/simvision.exe -connect dc:VLSI-01:59139
+Work Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+ 
+*** Message Type: info ***
+When: Wed Nov 28 10:53:40 AM HKT 2018
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Wed Nov 28 10:53:41 AM HKT 2018
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Wed Nov 28 10:53:42 AM HKT 2018
+Connect to Simulator
+      Design: work.TopBaggingTest
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:        ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Wed Nov 28 10:53:32 AM HKT 2018
+  Process ID: 122153
+   Directory: /workspace/home/hufl/weiminghu_Synth/baggingDemo1126/sim
+     Command: ncsim -GUI work.TopBaggingTest
+
+ 
+*** Message Type: info ***
+When: Wed Nov 28 10:53:42 AM HKT 2018
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Wed Nov 28 10:53:49 AM HKT 2018
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Wed Nov 28 11:01:44 AM HKT 2018
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: error ***
+When: Wed Nov 28 11:01:44 AM HKT 2018
+invalid command name ".waveWindow0.bottom.statusbar.indicator-autosave.autosave"
+    while executing
+".waveWindow0.bottom.statusbar.indicator-autosave.autosave configure -image image268"
+    ("after" script)
+ 
+*** Message Type: error ***
+When: Wed Nov 28 11:01:44 AM HKT 2018
+invalid command name ".waveWindow0.bottom.statusbar.indicator-autosave.autosave"
+    while executing
+".waveWindow0.bottom.statusbar.indicator-autosave.autosave configure -image image268"
+    ("after" script)
+ 
+*** Message Type: error ***
+When: Wed Nov 28 11:01:44 AM HKT 2018
+invalid command name ".waveWindow0.bottom.statusbar.indicator-autosave.autosave"
+    while executing
+".waveWindow0.bottom.statusbar.indicator-autosave.autosave configure -image image268"
+    ("after" script)
+ 
+*** Message Type: info ***
+When: Wed Nov 28 11:01:53 AM HKT 2018
+SimVision Exit.
+ 

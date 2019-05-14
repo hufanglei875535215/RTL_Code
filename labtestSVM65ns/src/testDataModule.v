@@ -1,0 +1,18 @@
+module testDataModule(clk,dataIn,address,read,write,dataOut);
+input signed [1:0]  dataIn;
+output signed [1:0] dataOut;
+input clk;
+input [8:0]address;
+input read;
+input write;
+reg signed [1:0] memory[0:10];
+wire signed [1:0] dataOut;
+assign dataOut=read?memory[address]:2'b0;
+always@(posedge clk)
+	
+	begin
+	if(write)
+		//memory[address]<=dataIn;//
+		memory[address]<=dataIn;
+	end
+endmodule

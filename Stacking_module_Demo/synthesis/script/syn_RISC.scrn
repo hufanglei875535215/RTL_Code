@@ -1,0 +1,166 @@
+################################################################
+# The script for mini-mips synthesis
+################################################################
+
+###### global settings ######
+
+set DESIGN Stacking_Top_Module
+set clk clk
+set rst rst
+set libpath { \
+	/workspace/technology/tsmc/65nm_GP/Std_cell_lib/tcbn65gplushpbwp/TSMCHOME/digital/Front_End/timing_power_noise/ECSM/tcbn65gplushpbwp_140a/ \
+	}
+
+#set_attribute hdl_language       vhdl
+set_attr hdl_search_path ../src
+set_attribute script_search_path ./script
+#set verbosity level (0-9):
+set_attribute information_level  9
+
+###### Libraries and technology files ######
+
+source ./script/tech_settings.tcl
+#read_cpf -library ./behaviour.cpf
+
+###### Enable clock gating ######
+
+set_attribute lp_insert_clock_gating true /
+set_attribute lp_clock_gating_exceptions_aware true /
+set_attribute lp_clock_gating_prefix "PREFIX_lp_clock_gating"  /
+
+###### Enable operand isolation ######
+
+set_attribute lp_insert_operand_isolation true /
+set_attribute lp_operand_isolation_prefix "PREFIX_lp_operand_isolation"  /
+
+###### Read HDL files ######
+
+include ./script/read_hdl.scr
+
+foreach VERILOG_FILE ${VERILOG_FILES} {
+  read_hdl ${VERILOG_FILE}.v
+}
+
+#set_attribute hdl_signal_value 0 /
+#set_attribute hdl_undriven_output_port 0 /
+#set_attribute hdl_unconnected_input_port 0 /
+
+###### Don't touch cells ######
+
+# set_attribute preserve true [find / -subdesign TS1N40LPB8192X32M4S]
+# set_attribute preserve true [find / -subdesign TSDN40LPA128X32M4F]
+
+###### Setup for power analysis #####
+
+set_attribute hdl_track_filename_row_col true /
+
+###### Setup for timing optimization #####
+
+set_attribute tns_opto true /
+
+###### Elaborate design ######
+
+set_attribute hdl_vhdl_assign_width_mismatch true
+set_attribute hdl_vhdl_lrm_compliance true
+
+elaborate $DESIGN
+#read_cpf behaviour.cpf
+#commit_cpf
+
+check_design -unresolved
+
+###### Setting constraints ######
+
+#set clock [define_clock -p ${CLOCK_CYCLE} -n clk_main [find /des* -port ports_in/clk_main] -mode [find /* -mode PM1]]
+
+define_clock  -name $clk -period 1000000 [find / -port $clk]
+#define_clock  -name virtual_io_clock -period 1000000
+
+#set_attribute slew {50 50 100 100} /designs/${DESIGN}/timing/clock_domains/domain_1/clk
+set_attribute clock_setup_uncertainty {150 150} $clk
+set_attribute clock_hold_uncertainty {150 150} $clk
+
+#external_delay -input  150 -clock [find / -clock clk] -edge_rise [all_inputs]
+#external_delay -output 50  -clock [find / -clock clk] -edge_rise [all_outputs]
+#set_input_delay   -clock "virtual_io_clock" 100 [remove_from_collection [all_inputs] [get_ports {$clk}]]
+#set_output_delay  -clock "virtual_io_clock" 100 [all_outputs]
+
+#set_attribute external_driver [find [find / -libcell DFQM1RA] -libpin Q] [find /des* -port ports_in/*]
+# set_attribute external_pin_cap 2 [find /des* -port ports_out/*]
+set_attribute max_fanout 16 /des*/*
+set_attribute max_fanout      "" [find /des* -port ports_in/$clk]
+set_attribute max_fanout      "" [find /des* -port ports_in/$rst]
+set_attribute max_transition 200 /des*/*
+
+# set_attribute wireload_mode enclosed
+set_attribute interconnect_mode ple
+
+set_attribute ideal_driver true  [find / -port $clk]
+set_attribute ideal_driver true  [find / -port $rst]
+
+###### Cost groups ######
+
+#set func_clk [find /designs -clock $DESIGN/*/$clk]
+#set virt_clk [find /designs -clock $DESIGN/*/virtual_io_clock]
+
+#define_cost_group -name C2C -design $DESIGN
+#path_group -from $func_clk -to $func_clk -group C2C -name C2C
+
+#define_cost_group -name I2C -design $DESIGN
+#path_group -from $virt_clk -to [all::all_seqs] -group I2C -name I2C
+
+#define_cost_group -name C2O -design $DESIGN
+#path_group -from [all::all_seqs] -to $virt_clk -group C2O -name C2O
+
+#define_cost_group -name I2O -design $DESIGN
+#path_group -from $virt_clk -to $virt_clk -group I2O -name I2O
+
+###### Clock gating constraint ######
+
+set_attribute lp_clock_gating_max_flops 4 /designs/*
+#set_attribute lp_clock_gating_cell [find / -libcell ] /designs/*
+
+###### Power optimization ######
+
+set_attribute lp_power_optimization_weight 0.1 /des*/*
+set_attribute max_dynamic_power 0 $DESIGN
+#set_attribute max_leakage_power 0 $DESIGN
+#set_attribute leakage_power_effort medium
+#set_attribute lp_power_analysis_effort medium /
+
+
+
+set_attribute remove_assigns true
+
+###### Synthesis ######
+
+#set_attribute preserve true [find / -instance aeNoC]
+
+synthesize -to_generic -effort medium
+
+synthesize -to_mapped -eff high -no_incr
+
+synthesize -incr
+
+###### Write the mapped design and sdc file ######
+
+#write -mapped > ${DESIGN}_synth.v
+#write_sdc > ${DESIGN}.sdc
+
+###### Write files for Encounter ######
+
+write_encounter design -basename ./p+r_enc/${DESIGN}_synth
+write_sdf -no_escape -edge check_edge > ./gate/${DESIGN}.sdf
+
+###### Report and analyze power and timing ###### 
+report power        > ./rpt/${DESIGN}.power.rpt
+report timing -num_paths 10      > ./rpt/${DESIGN}.timing.rpt
+report area         > ./rpt/${DESIGN}.area.rpt
+report gates        > ./rpt/${DESIGN}.gates.rpt
+report design_rules > ./rpt/${DESIGN}.rules.rpt
+report clock_gating > ./rpt/${DESIGN}.clkgating.rpt
+report summary      > ./rpt/${DESIGN}.summary.rpt
+
+puts "The RUNTIME is [get_attr runtime /] seconds"
+
+exit

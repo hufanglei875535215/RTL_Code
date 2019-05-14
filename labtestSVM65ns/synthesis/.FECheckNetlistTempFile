@@ -1,0 +1,23 @@
+
+------ I/O Pad/Port Checking
+
+
+------ Primitive Pins DRC Checking
+
+**WARN: Instance 'ARC_pipe_ARC_EX_ARC_BRANCH_EX/g2559' has multiple input pins tied together to net 'EW_sreg_branch_stall_BRANCH_EX_1'.
+
+------ Primitive Net DRC Check
+
+WARNING : Net clk_main has 88 fanout
+WARNING : Net rst_main has 1056 fanout
+WARNING : Net data_mem_ew_wp0 has 84 fanout
+WARNING : Net ARC_MemoryFile_data_mem_read_port_0_request_read_1_wait_register has 67 fanout
+WARNING : Net ARC_pipe_A_cmp_rr_ex_DC has 68 fanout
+WARNING : Net ARC_pipe_A_st_mem_DC has 74 fanout
+WARNING : Net ARC_pipe_EW_DC_EX_op1_ALU_DC_1 has 100 fanout
+WARNING : Net ARC_pipe_EW_DC_EX_op1_ALU_DC_4 has 72 fanout
+WARNING : Net EW_sreg_dmem_busy_ALU_EX_2 has 99 fanout
+WARNING : Net ARC_pipe_ARC_EX_ARC_ALU_EX/PROC_alu_rrr_ex.var_shifter_in2_up128[0]_17233 has 104 fanout
+WARNING : Net ARC_pipe_ARC_EX_ARC_ALU_EX/PROC_alu_rrr_ex.var_shifter_in2_up128[1]_17236 has 91 fanout
+WARNING : Net ARC_pipe_ARC_EX_ARC_ALU_EX/PROC_alu_rrr_ex.var_shifter_in2_up128[2]_17239 has 69 fanout
+WARNING : Net VSS has 80 fanout

@@ -1,0 +1,10 @@
+# File: read_hdl.scr
+
+# define design files:
+set VERILOG_FILES { \
+         baseClassifier \
+	Logistic_Module \
+	base_Weight_Memory \
+	Stacking_Top_Module \
+       }
+

@@ -1,0 +1,92 @@
+*** Message Type: info ***
+When: Tue Dec 26 08:18:29 PM HKT 2017
+SimVision started.
+Version: TOOL:  simvision       15.10-s002
+User: hufl
+Host: VLSI-01
+Platform: Linux/x86_64/2.6.32-642.el6.x86_64
+Started: Tue Dec 26 08:18:29 PM HKT 2017
+Command: /eda/cadence/2015-16/RHELx86/INCISIVE_15.10.002/tools.lnx86/simvision/bin/simvision.exe -connect dc:VLSI-01:59044
+Work Directory: /workspace/home/hufl/1219demo/labtestEn45ns/sim
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:18:29 PM HKT 2017
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:18:30 PM HKT 2017
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:18:31 PM HKT 2017
+Connect to Simulator
+      Design: work.Testbench2
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Dec 26 08:18:22 PM HKT 2017
+  Process ID: 172559
+   Directory: /workspace/home/hufl/1219demo/labtestEn45ns/sim
+     Command: ncsim -GUI work.Testbench2
+
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:18:31 PM HKT 2017
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:18:39 PM HKT 2017
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Dec 26 08:24:00 PM HKT 2017
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Dec 26 10:19:52 PM HKT 2017
+Exit NC-Sim: user
+      Design: work.Testbench2
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Dec 26 08:18:22 PM HKT 2017
+  Process ID: 172559
+   Directory: /workspace/home/hufl/1219demo/labtestEn45ns/sim
+     Command: ncsim -GUI work.Testbench2
+
+ 
+*** Message Type: error ***
+When: Tue Dec 26 10:19:52 PM HKT 2017
+NC-Sim Crashed:
+      Design: work.Testbench2
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Dec 26 08:18:22 PM HKT 2017
+  Process ID: 172559
+   Directory: /workspace/home/hufl/1219demo/labtestEn45ns/sim
+     Command: ncsim -GUI work.Testbench2
+      Design: work.Testbench2
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:      ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Tue Dec 26 08:18:22 PM HKT 2017
+  Process ID: 172559
+   Directory: /workspace/home/hufl/1219demo/labtestEn45ns/sim
+     Command: ncsim -GUI work.Testbench2
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Tue Dec 26 10:20:00 PM HKT 2017
+SimVision Exit.
+ 

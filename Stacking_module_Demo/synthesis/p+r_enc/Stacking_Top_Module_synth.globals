@@ -1,0 +1,29 @@
+#####################################################################
+#
+# First Encounter input globals file
+# Created by Encounter(R) RTL Compiler on 12/25/2018 12:10:04
+#
+#####################################################################
+global setUserDataValue
+global set_global
+set cwd lpwd
+setUserDataValue init_verilog {./p+r_enc/Stacking_Top_Module_synth.v}
+setUserDataValue init_design_netlisttype {Verilog}
+setUserDataValue init_design_settop {1}
+setUserDataValue init_top_cell {Stacking_Top_Module}
+setUserDataValue init_mmmc_file {./p+r_enc/Stacking_Top_Module_synth.mmode.tcl}
+setUserDataValue init_lef_file {}
+setUserDataValue fp_core_cntl {aspect}
+setUserDataValue fp_aspect_ratio {1.0000}
+setUserDataValue extract_shrink_factor {1.0}
+setUserDataValue init_assign_buffer {0}
+
+
+setUserDataValue init_cpf_file {}
+
+########## RTL ##########
+#setUserDataValue init_design_netlisttype {RTL}
+
+
+
+

@@ -1,0 +1,14 @@
+ncsim: 15.10-s002: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm Stacking_Module_Test.bias1 Stacking_Module_Test.bias2 Stacking_Module_Test.bias3 Stacking_Module_Test.class_bias Stacking_Module_Test.class_weight1 Stacking_Module_Test.class_weight2 Stacking_Module_Test.class_weight3 Stacking_Module_Test.clk Stacking_Module_Test.data Stacking_Module_Test.data1 Stacking_Module_Test.data2 Stacking_Module_Test.data3 Stacking_Module_Test.en Stacking_Module_Test.flag Stacking_Module_Test.i Stacking_Module_Test.ii Stacking_Module_Test.j Stacking_Module_Test.jj Stacking_Module_Test.k Stacking_Module_Test.kk Stacking_Module_Test.read1 Stacking_Module_Test.read2 Stacking_Module_Test.read3 Stacking_Module_Test.rst Stacking_Module_Test.thred Stacking_Module_Test.total_ready Stacking_Module_Test.total_result Stacking_Module_Test.weight1 Stacking_Module_Test.weight1M Stacking_Module_Test.weight2 Stacking_Module_Test.weight2M Stacking_Module_Test.weight3 Stacking_Module_Test.weight3M Stacking_Module_Test.write1 Stacking_Module_Test.write2 Stacking_Module_Test.write3
+Created probe 1
+ncsim> run
+Simulation complete via $finish(1) at time 552500 PS + 1
+../src/Logistic_Module.v:77 			$finish;
+ncsim> ^C
+ncsim> exit

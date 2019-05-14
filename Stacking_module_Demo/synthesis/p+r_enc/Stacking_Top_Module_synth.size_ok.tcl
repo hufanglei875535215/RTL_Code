@@ -1,0 +1,12 @@
+base1/gCGor2/rm_assigns_buf_or_out
+base1/gCGor4/rm_assigns_buf_or_out
+base1/gCGor7/rm_assigns_buf_or_out
+base1/gCGor9/rm_assigns_buf_or_out
+base2/gCGor12/rm_assigns_buf_or_out
+base2/gCGor14/rm_assigns_buf_or_out
+base2/gCGor17/rm_assigns_buf_or_out
+base2/gCGor19/rm_assigns_buf_or_out
+base3/gCGor22/rm_assigns_buf_or_out
+base3/gCGor24/rm_assigns_buf_or_out
+base3/gCGor27/rm_assigns_buf_or_out
+base3/gCGor29/rm_assigns_buf_or_out

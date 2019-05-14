@@ -1,0 +1,96 @@
+*** Message Type: info ***
+When: Fri Dec 07 12:03:16 PM HKT 2018
+SimVision started.
+Version: TOOL:  simvision       15.10-s002
+User: hufl
+Host: VLSI-01
+Platform: Linux/x86_64/2.6.32-642.el6.x86_64
+Started: Fri Dec 07 12:03:16 PM HKT 2018
+Command: /eda/cadence/2015-16/RHELx86/INCISIVE_15.10.002/tools.lnx86/simvision/bin/simvision.exe -connect dc:VLSI-01:60121
+Work Directory: /workspace/home/hufl/weiminghu_Synth/labtestEn65ns_parallize/sim
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:16 PM HKT 2018
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:17 PM HKT 2018
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:18 PM HKT 2018
+Connect to Simulator
+      Design: work.AdaBoostTopBagging_Test
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:       ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Fri Dec 07 12:03:09 PM HKT 2018
+  Process ID: 11243
+   Directory: /workspace/home/hufl/weiminghu_Synth/labtestEn65ns_parallize/sim
+     Command: ncsim -GUI work.AdaBoostTopBagging_Test
+
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:18 PM HKT 2018
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:21 PM HKT 2018
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:45 PM HKT 2018
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:49 PM HKT 2018
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:53 PM HKT 2018
+Exit NC-Sim: user
+      Design: work.AdaBoostTopBagging_Test
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:       ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Fri Dec 07 12:03:09 PM HKT 2018
+  Process ID: 11243
+   Directory: /workspace/home/hufl/weiminghu_Synth/labtestEn65ns_parallize/sim
+     Command: ncsim -GUI work.AdaBoostTopBagging_Test
+
+ 
+*** Message Type: error ***
+When: Fri Dec 07 12:03:53 PM HKT 2018
+NC-Sim Crashed:
+      Design: work.AdaBoostTopBagging_Test
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:       ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Fri Dec 07 12:03:09 PM HKT 2018
+  Process ID: 11243
+   Directory: /workspace/home/hufl/weiminghu_Synth/labtestEn65ns_parallize/sim
+     Command: ncsim -GUI work.AdaBoostTopBagging_Test
+      Design: work.AdaBoostTopBagging_Test
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim   15.10-s002
+        User: hufl
+        Host: VLSI-01
+Time Started: Fri Dec 07 12:03:09 PM HKT 2018
+  Process ID: 11243
+   Directory: /workspace/home/hufl/weiminghu_Synth/labtestEn65ns_parallize/sim
+     Command: ncsim -GUI work.AdaBoostTopBagging_Test
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Fri Dec 07 12:03:55 PM HKT 2018
+SimVision Exit.
+ 
